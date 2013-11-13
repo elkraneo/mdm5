@@ -1,0 +1,22 @@
+section{
+/* Rectangle 1 copy: */
+margin: 100px;
+width: 200px;
+height: 200px;
+/* Rectangle 1 copy: */
+
+/* Rectangle 1 copy: */
+
+border-radius: 30px;
+
+background-image: -o-linear-gradient(-90deg, #7A00FF 0%, #000000 100%);
+background-image: -moz-linear-gradient(-90deg, #7A00FF 0%, #000000 100%);
+background-image: -webkit-linear-gradient(-90deg, #7A00FF 0%, #000000 100%);
+background-image: -ms-linear-gradient(-90deg, #7A00FF 0%, #000000 100%);
+background-image: linear-gradient(-180deg, #7A00FF 0%, #000000 100%);
+
+-moz-box-shadow:    0px 2px 22px 0px rgba(0,0,0,0.50), inset 0px 8px 25px 0px rgba(0,0,0,0.50);
+-webkit-box-shadow: 0px 2px 22px 0px rgba(0,0,0,0.50), inset 0px 8px 25px 0px rgba(0,0,0,0.50);
+box-shadow:         0px 2px 22px 0px rgba(0,0,0,0.50), inset 0px 8px 25px 0px rgba(0,0,0,0.50);
+
+}
