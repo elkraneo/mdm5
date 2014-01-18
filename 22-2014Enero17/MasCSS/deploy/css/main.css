@@ -1,0 +1,81 @@
+body {
+	/*background-color: red;*/
+	/*background-color: rgb(0, 255, 0);*/
+	background-color: hsl(0, 100%, 100%);
+}
+
+section {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.color1 {
+	background-color: hsl(0, 50%, 50%);
+}
+
+.color2 {
+	background-color: hsl(10, 50%, 50%);
+}
+
+.color3 {
+	background-color: hsl(20, 50%, 50%);
+}
+
+.color4 {
+	background-color: hsl(30, 50%, 50%);
+}
+
+.color5 {
+	background-color: hsl(40, 50%, 50%);
+}
+
+.color6 {
+	background-color: hsl(50, 50%, 50%);
+}
+
+.color7 {
+	background-color: hsl(60, 50%, 50%);
+}
+
+.color8 {
+	background-color: hsl(70, 50%, 50%);
+}
+
+.color9 {
+	background-color: hsl(80, 50%, 50%);
+}
+
+.color10 {
+	background-color: hsl(90, 50%, 50%);
+}
+
+.color11 {
+	background-color: hsl(100, 50%, 50%);
+}
+
+.color12 {
+	background-color: hsl(110, 50%, 50%);
+}
+
+.color13 {
+	background-color: hsl(120, 50%, 50%);
+}
+
+.color14 {
+	background-color: hsl(130, 50%, 50%);
+}
+
+.color15 {
+	background-color: hsl(140, 50%, 50%);
+}
+
+.color16 {
+	background-color: hsl(150, 50%, 50%);
+}
+
+.color17 {
+	background-color: hsl(160, 50%, 50%);
+}

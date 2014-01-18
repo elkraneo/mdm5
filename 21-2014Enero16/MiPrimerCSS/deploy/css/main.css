@@ -1,0 +1,18 @@
+body {
+	background-color: #906090;
+	font-family: "Helvetica Neue";
+	font-size: 30px;
+	font-weight: bold;
+}
+
+section {
+	background-color: #000000;
+	color: #FFFFFF;
+	height: 100px;
+}
+
+
+.alternado {
+	background-color: #609060;
+	color: #346735;
+}

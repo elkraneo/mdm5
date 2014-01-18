@@ -1,0 +1,44 @@
+section{
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	position: fixed;
+	transition: 1s all;
+	background-image: url("../images/phone@1x.png");
+}
+
+section:hover {
+	border-radius: 50%;
+}
+
+.rojo{
+	background-color: red;
+	top:0;
+	left: 0;
+}
+
+.verde{
+	background-color: rgba(0, 255, 0, 0.7);
+	top: 0;
+	right: 0;
+}
+
+.amarillo{
+	background-color: yellow;
+	left: 0;
+	bottom:0;
+}
+
+.azul{
+	background-color: blue;
+	right: 0;
+	bottom: 0;
+}
+
+
+
+
+
+
+
+
