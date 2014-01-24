@@ -1,0 +1,25 @@
+body {
+  background: #EEE;
+  font-family: arial, helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.mydiv {
+  position: absolute;
+  top: 50px;
+  left: 350px;
+  width: 400px;
+  height: 400px;
+  background-color: #ff9900;
+}
+
+.mydiv p {
+  padding: 25px;
+  line-height: 1.5em;
+}

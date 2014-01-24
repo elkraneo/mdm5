@@ -1,0 +1,12 @@
+img {
+  text-align: center;
+  font-size: 4em;
+  margin-bottom: 30em;
+  -webkit-box-reflect: below -22px -webkit-gradient(
+                                                      linear,
+                                                      left top, left bottom,
+                                                      from(transparent),
+                                                      color-stop(0.2, transparent),
+                                                      to(rgba(255,255,255,0.5))
+                                                   );
+}

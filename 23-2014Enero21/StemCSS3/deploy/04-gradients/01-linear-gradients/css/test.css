@@ -1,0 +1,18 @@
+#myDiv1 {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, from(#2095bf), to(#000));
+  
+  
+  background-image: -moz-linear-gradient(0% 100% 0deg, #0099ff, #000);
+
+
+}
+
+/*
+  The code examples below show how to vertical linear gradient,
+  as opposed to a horizontal linear gradient, like in the
+  first example.
+*/
+#myDiv2 {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#2095bf), to(#000));
+  background-image: -moz-linear-gradient(0% 100% 90deg, #000, #0099ff);
+}

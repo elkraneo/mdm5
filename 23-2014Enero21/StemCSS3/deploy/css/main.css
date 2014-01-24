@@ -1,0 +1,21 @@
+body {
+  background: #EEE;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  margin: 10px;
+  padding: 10px;
+}
+
+#wrapper {
+  margin: 0 auto;
+}
+
+.mydiv {
+  margin: 60px auto;
+  width: 400px;
+  height: 400px;
+  background-color: #2095bf;
+}
+
+.grid{
+	  background: #EEE url('../images/grid_square.png') 50px 50px repeat;
+}

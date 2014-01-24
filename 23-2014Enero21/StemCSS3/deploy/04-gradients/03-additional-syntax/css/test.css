@@ -1,0 +1,25 @@
+/*
+  In webkit, it is possible to apply gradients to several
+  properties besides background-image.
+*/
+#myDiv1 {
+  -webkit-border-image: -webkit-gradient(linear, 0% 50%, 100% 50%, from(#0099FF), to(#000)) 25 round;
+  border-width: 15px;
+}
+
+/*
+  Using color-stops, it is possible to use several
+  colors within a single gradient.
+*/
+#myDiv2 {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0, #0099FF), color-stop(1.0, #000), color-stop(0.5, #FF0099));
+  background-image: -moz-linear-gradient(0% 100% 0deg, #0099ff 0%, #ff0099 50%, #000 100%);
+}
+
+/*
+  In mozilla, it is possible to create elliptical
+  gradients using the keyword "ellipse."
+*/
+#myDiv3 {
+  background-image: -moz-radial-gradient(100px, ellipse closest-corner, #0099FF, #000);
+}

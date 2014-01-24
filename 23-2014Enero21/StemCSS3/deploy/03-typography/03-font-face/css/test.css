@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'orbitron';
+  src: url('orbitron-bold.otf');
+}
+
+@font-face {
+  font-family: 'chunk';
+  src: url('Chunk.otf') format('opentype'),
+       url('Chunk.eot') format('eot');
+}
+
+/*
+"Bullet Proof" @font-face syntax from Paul Irish:
+http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/
+
+@font-face {
+  font-family: 'Graublau Web';
+  src: url('GraublauWeb.eot?') format('eot'),
+       url('GraublauWeb.woff') format('woff'),
+       url('GraublauWeb.ttf') format('truetype');
+}
+*/
+
+p:nth-child(1) {
+  font-family: 'chunk';
+}
+
+p:nth-child(2) {
+  font-family: 'orbitron';
+}

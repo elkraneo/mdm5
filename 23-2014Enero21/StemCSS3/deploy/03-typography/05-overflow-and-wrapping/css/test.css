@@ -1,0 +1,22 @@
+/* http://www.w3.org/TR/2003/CR-css3-text-20030514/#text-overflow-props */
+p.clip {
+  width: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+
+p.ellipsis {
+  width: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+
+p.wordwrap {
+  width: 400px;
+  word-wrap: break-word;
+}

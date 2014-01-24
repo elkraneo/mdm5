@@ -1,0 +1,62 @@
+.mydiv {
+  position: absolute;
+  left: 150px;
+}
+
+#myDiv1 {
+  top: 50px;
+}
+
+#myDiv2 {
+  top: 450px;
+}
+
+#myDiv3 {
+  top: 1050px;
+}
+
+.mydiv p {
+  padding: 25px;
+  line-height: 1.5em;
+}
+
+
+/*
+ The -webkit-perspective property defines how far away you
+ are from the Z-origin, and essentially stretches perspective
+ across the delta.
+*/
+#wrapper {
+  -webkit-perspective: 800;
+  -webkit-transition: all 1s;
+}
+
+#wrapper:hover {
+  /*-webkit-perspective: 10;*/
+}
+
+/*
+  The scale3d function allows you to scale your element along the
+  X, Y, and Z axes. To scale an element along the Z axis, you'll
+  have to rotate it first.
+*/
+#myDiv1 {
+  -webkit-transform: scale3d(0.8, 0.8, 2) rotate3d(100, 100, 100, 30deg);
+}
+
+/*
+  This is the most basic type of CSS3 3D translation possible.
+  The 3 arguments are for the X, Y, and Z axes.
+*/
+#myDiv2 {
+  -webkit-transform: translate3d(0px, 0px, 100px);
+}
+
+/*
+  By using the rotate3d function, you can specify a vector in
+  space that serves as the rotational axis for your element.
+*/
+#myDiv3 {
+  -webkit-transform: rotate3d(0, 0, 0, 10deg);
+}
+

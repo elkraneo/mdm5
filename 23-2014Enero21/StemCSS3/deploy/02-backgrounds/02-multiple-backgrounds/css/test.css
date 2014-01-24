@@ -1,0 +1,10 @@
+#wrapper {
+  margin: 12px auto;
+  width: 940px;
+  height: 480px;
+  padding: 10px;
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: url('../images/screenshot.png') 370px 60px no-repeat,
+              url('../images/paint.png') top left no-repeat;
+}

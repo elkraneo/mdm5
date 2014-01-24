@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+  font-size: 4em;
+  color: #FFF;
+  text-shadow:
+      -1px -1px 0 #CCC,
+       1px -1px 0 #CCC,
+      -2px  2px 0 #555,
+       2px  2px 0 #555;
+}
+
+/* http://mothereffingtextshadow.com/ */

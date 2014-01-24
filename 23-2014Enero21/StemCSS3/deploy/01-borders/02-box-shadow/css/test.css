@@ -1,0 +1,59 @@
+#myDiv1 {
+  -webkit-box-shadow: 10px 10px #000;
+  -moz-box-shadow: 10px 10px #000;
+}
+
+/*
+  The 3rd value in the example below is the blur radius,
+  which is optional. The blur radius allows you to adjust
+  the fuzziness of your shadows.
+*/
+#myDiv2 {
+  -webkit-box-shadow: 10px 10px 20px #000;
+  -moz-box-shadow: 10px 10px 20px #000;
+}
+
+/*
+  This is an example of how the rgba color model can
+  be applied to box-shadows, and used to adjust the
+  opacity of the shadows.
+*/
+#myDiv3 {
+  -webkit-box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+  -moz-box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+}
+
+/*
+  You can apply up to 6 shadows per element, which
+  is good for flame effects and other complex shadowing.
+  Simply separate each shadow with a comma.
+*/
+#myDiv4 {
+  -webkit-box-shadow: 10px 10px 20px rgba(255,0,75,0.5),
+                     -10px -10px 20px rgba(0,100,0,0.5);
+
+  -moz-box-shadow: 10px 10px 20px rgba(255,0,75,0.5),
+                  -10px -10px 20px rgba(0,100,0,0.5);
+}
+
+/*
+  box-shadow also allows for inner shadows, which you
+  can create by adding the keyword "inset" as the
+  first value.
+*/
+#myDiv5 {
+  -webkit-box-shadow: inset 10px 10px 20px #000;
+  -moz-box-shadow: inset 10px 10px 20px #000;
+}
+
+/*
+  With box-shadow, border-radius, and the new rgba
+  color model, it is possible to create a sunken
+  well effect, like in Mac OS X.
+*/
+#myDiv6 {
+  -webkit-box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
+  -moz-box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}

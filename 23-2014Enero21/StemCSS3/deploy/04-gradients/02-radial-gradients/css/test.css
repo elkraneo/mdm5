@@ -1,0 +1,23 @@
+#myDiv1 {
+  background-image: -webkit-gradient(radial, center center, 0, center center, 200, from(#2095bf), to(#000));
+  background-image: -moz-radial-gradient(center, circle closest-corner, #2095bf 0%, #000 100%);
+}
+
+/*
+  webkit defines gradients in terms of two concentric circles.
+  By offsetting the origins of the circles from each other,
+  it is possible to create some interesting effects.
+*/
+#myDiv2 {
+  background-image: -webkit-gradient(radial, center center, 0, 150 150, 200, from(#2095bf), to(#000));
+}
+
+/*
+  To adjust the size of a radial gradient in Firefox,
+  the second value accepts several keywords, such as
+  closest-corner, farthest-corner, closest-side,
+  and farthest-side.
+*/
+#myDiv3 {
+  background-image: -moz-radial-gradient(100px, circle farthest-corner, #2095bf, #000);
+}

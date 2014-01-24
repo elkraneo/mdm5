@@ -1,0 +1,41 @@
+#myDiv1 {
+  -webkit-transition: -webkit-box-shadow 1s linear;
+}
+
+#myDiv1:hover {
+  -webkit-box-shadow: 0px 0px 30px #000;
+}
+
+/*
+  By changing the first transistion argument to the constant
+  "all" transitions can be applied to multiple properties on
+  a single element.
+*/
+#myDiv2 {
+  -webkit-transition: all 1s linear;
+}
+
+#myDiv2:hover {
+  background: #ffcc00;  
+  -webkit-box-shadow: 0px 0px 30px #000;
+}
+
+/*
+  This is an example of how you can create your own custom
+  cubic-bezier animation curves. The first two arguments in the
+  cubic-bezier function are the X and Y coordinates for the first
+  handle, and the second set of arguments are for the second handle.
+*/
+#myDiv3 {
+/*  -webkit-transition: all 2s cubic-bezier(1.0,0,1.0,0);*/
+    -webkit-transition: all 1s;
+}
+
+#myDiv3:hover {
+  background: #ffcc00;
+  -webkit-box-shadow: 0px 0px 30px #000;
+  -webkit-border-radius:50%;
+}
+
+
+

@@ -1,0 +1,22 @@
+#myDiv1 {
+  -webkit-transform: translate(25px, 25px);
+}
+
+/*
+ Using the scale function, you can increase or decrease
+ the size of the element. Remember, the values are coefficients
+ that multiply the starting width and height values for
+ the element. In this case, we've doubled the width.
+*/
+#myDiv2 {
+  -webkit-transform: scale(2, 1);
+}
+
+/*
+ To scale down an element, you simply multiply
+ the element's width and height by values that sit
+ between 0 and 1.
+*/
+#myDiv3 {
+  -webkit-transform: scale(0.35, 1.1);
+}

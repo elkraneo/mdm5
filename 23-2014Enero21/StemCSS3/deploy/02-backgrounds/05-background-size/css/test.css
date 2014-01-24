@@ -1,0 +1,29 @@
+h1 {
+  font-size: 4em;
+  color: #FFF;
+  margin: 110px 0px 0px 50px;
+  width: 350px;
+  line-height: .8em;
+  -webkit-transform: rotate(-10deg);
+}
+
+#description {
+  width: 320px;
+  font-size: 1.03em;
+  line-height: 1.4em;
+  margin: 70px 0px 0px 55px;
+  color: #777;
+}
+
+#wrapper {
+  margin: 12px auto;
+  width: 80%;
+  height: 480px;
+  padding: 10px;
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: url('../images/screenshot.png') 400px 60px no-repeat,
+              url('../images/paint.png') top left no-repeat,
+              -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#E3E3E3));
+  background-size: 70%, auto, auto;
+}

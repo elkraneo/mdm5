@@ -1,0 +1,43 @@
+#wrapper {
+  -webkit-perspective: 800;
+  -webkit-perspective-origin: 50% 90px;
+  -webkit-transition: -webkit-perspective, 1s;
+  width: 600px;
+  margin: 150px auto 0 auto;
+}
+
+#wrapper:hover {
+  -webkit-perspective-origin: 50% -100px;
+}
+
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotateY(0); }
+  to   { -webkit-transform: rotateY(-360deg); }
+}
+
+#shape {
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: spin 8s infinite linear;
+}
+
+.plane {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  font-size: 10em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#shape > .p1 { -webkit-transform: translateZ(250px);                 }
+#shape > .p2 { -webkit-transform: rotateY(45deg)  translateZ(250px); }
+#shape > .p3 { -webkit-transform: rotateY(90deg)  translateZ(250px); }
+#shape > .p4 { -webkit-transform: rotateY(135deg) translateZ(250px); }
+#shape > .p5 { -webkit-transform: rotateY(180deg) translateZ(250px); }
+#shape > .p6 { -webkit-transform: rotateY(225deg) translateZ(250px); }
+#shape > .p7 { -webkit-transform: rotateY(270deg) translateZ(250px); }
+#shape > .p8 { -webkit-transform: rotateY(315deg) translateZ(250px); }

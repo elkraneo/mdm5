@@ -1,0 +1,49 @@
+#wrapper {
+  margin: 12px auto;
+  width: 940px;
+  height: 480px;
+  padding: 10px;
+  
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  
+  
+  background: url('../images/paint.png') top left no-repeat #FFF;
+  border: 20px dotted #2095bf;
+  
+/* http://www.css3.info/preview/background-origin-and-background-clip/ */
+/*The background-origin property is used to determine how the background-position of a background in a certain box is calculated.
+
+padding-box: the position is relative to the upper left corner of the padding edge. 
+border-box: it’s relative to the upper left corner of the border
+content-box: means the background is started from the upper left corner of the content.*/
+
+  -webkit-background-origin: content-box; /* [border-box, padding-box, content-box] */
+
+/* The background-clip property is used to determine whether the backgrounds extends into the border or not. The default is border-box, which means it DOES extend into it, but if you set it to padding-box, it doesn’t. if you use content-box the background only extends to the content area. This value has been removed from the latest development version of the spec. */
+
+  -webkit-background-clip: padding-box;  /* [border-box, padding-box, content-box] */
+}
+
+
+
+/*********************
+Content
+*********************/
+
+h1 {
+  font-size: 3.2em;
+  color: #FFF;
+  margin: 120px 0px 0px 50px;
+  width: 300px;
+  line-height: 1em;
+  -webkit-transform: rotate(-10deg);
+}
+
+#description {
+  width: 300px;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin: 70px 0px 0px 20px;
+  color: #777;
+}

@@ -1,0 +1,56 @@
+#myDiv1 {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+}
+
+/*
+  You can use these properties to manipulate individual corners.
+*/
+#myDiv2 {
+  -webkit-border-top-left-radius: 50px;
+  -webkit-border-bottom-right-radius: 50px;
+  -moz-border-radius-topleft: 50px;
+  -moz-border-radius-bottomright: 50px;
+}
+
+/*
+  This is a shorthand syntax for manipulating each corner,
+  starting from the upper left and moving clockwise.
+*/
+#myDiv3 {
+  -webkit-border-radius: 5px 200px 30px 50px;
+  -moz-border-radius: 5px 200px 30px 50px;
+}
+
+/*
+  When you give border-radius two values seperated by
+  a slash, the first value represents the horizontal radius
+  and the second value represents the vertical radius.
+*/
+#myDiv4 {
+  -webkit-border-radius: 100px / 30px;
+  -moz-border-radius: 100px / 30px;
+}
+
+/*
+  When border radius is set to a very high value, the curved
+  corners will touch, creating a circle effect.
+*/
+#myDiv5 {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+/*
+  Below is what the border-radius syntax should ultimately
+  end up looking like (without vendor prefixes like moz and
+  webkit). Note: This may or may not work in your web browser.
+*/
+#myDiv6 {
+  border-radius: 50px;
+}
+
+
+
+
+
