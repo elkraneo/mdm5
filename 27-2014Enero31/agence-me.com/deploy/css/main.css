@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'brandon_grotesquebold';
+    src: url('fonts/brandon_bld-webfont.eot');
+    src: url('fonts/brandon_bld-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/brandon_bld-webfont.woff') format('woff'),
+         url('fonts/brandon_bld-webfont.ttf') format('truetype'),
+         url('fonts/brandon_bld-webfont.svg#brandon_grotesquebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brandon_grotesqueblack';
+    src: url('fonts/brandon_blk-webfont.eot');
+    src: url('fonts/brandon_blk-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/brandon_blk-webfont.woff') format('woff'),
+         url('fonts/brandon_blk-webfont.ttf') format('truetype'),
+         url('fonts/brandon_blk-webfont.svg#brandon_grotesqueblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+	background-color: #f1f1f1;
+}
+
+
+h1 {
+	font-family: 'brandon_grotesquebold';
+	text-transform: uppercase;
+}
+
+
+img {
+	max-width: 100%;
+}
+
+/* @group Main Nav */
+
+ul#main-nav li {
+	display: inline-block;
+	font-family: 'brandon_grotesquebold';
+	text-transform: uppercase;
+}
+
+ul#main-nav li:first-child {
+	background-color: red;
+}
+
+ul#main-nav li a {
+	text-decoration: none;
+	color: #809bb4;
+}
+
+ul#main-nav li a:hover {
+	text-decoration: underline;
+	color: #44596e;
+}
+
+/* @end */
+
+
+/* @group Reset CSS */
+/* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+
+article, section{
+	font-size: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* @end */
+
+
+/* @group Grid System */
+
+.row {
+	max-width: 83%;
+	margin: 0 auto;
+	padding: 0;
+	/*background-color: green;*/
+}
+
+.column{
+	/*height: 40px;*/
+	/*background-color: red;*/
+	/*border: 1px solid black;*/
+	display: inline-block;
+	/*position: relative;*/
+	margin: 0;
+	padding: 0;
+	/*overflow: hidden;*/
+}
+
+.one{
+	width: 8.33333%;
+}
+
+.two{
+	width: 16.67%;
+}
+
+.three{
+	width: 25%;
+}
+
+.four{
+	width: 33.33%
+}
+
+.five{
+	width: 41.67%
+}
+
+.six{
+	width: 50%;
+}
+
+.seven{
+	width: 58.33%;
+}
+
+.eight{
+	width: 66.67%;
+}
+
+.nine{
+	width: 75%;
+}
+
+.ten{
+	width: 83.33%;
+}
+
+.eleven{
+	width: 91.67%;
+}
+
+.twelve{
+	width: 100%;
+}
+
+/* @end */
+
+
+
