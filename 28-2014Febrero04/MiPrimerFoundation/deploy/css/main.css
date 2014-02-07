@@ -1,0 +1,41 @@
+ul{
+	margin-left: 0;
+}
+
+ul li{
+	list-style: none;
+}
+
+body{
+	background-color: #f1f1f1;
+}
+
+#main-nav{
+	position: fixed;
+
+	left: 50%;
+	background-color: red;
+	z-index: 1;
+
+  /*
+  Nope =(
+  margin-left: -25%;
+  margin-top: -25%;
+  */
+
+  /* 
+  Yep!
+  */
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  
+  /*
+  Not even necessary really. 
+  e.g. Height could be left out!
+  */
+}
+
+#main-nav{
+	background-color: #f1f1f1;
+	height: 120px;
+}

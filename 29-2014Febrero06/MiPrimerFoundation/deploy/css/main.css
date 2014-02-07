@@ -1,0 +1,167 @@
+@font-face{ 
+  font-family: 'brandonBold';
+  src: url('fonts/brandon_bld-webfont.eot');
+  src: url('fonts/brandon_bld-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/brandon_bld-webfont.woff') format('woff'),
+       url('fonts/brandon_bld-webfont.ttf') format('truetype'),
+       url('fonts/brandon_bld-webfont.svg#webfont') format('svg');
+}
+
+@font-face{ 
+  font-family: 'brandonBlack';
+  src: url('fonts/brandon_blk-webfont.eot');
+  src: url('fonts/brandon_blk-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/brandon_blk-webfont.woff') format('woff'),
+       url('fonts/brandon_blk-webfont.ttf') format('truetype'),
+       url('fonts/brandon_blk-webfont.svg#webfont') format('svg');
+}
+
+ul{
+	margin-left: 0;
+}
+
+  ul li{
+  	list-style: none;
+  }
+
+body{
+	background-color: #f1f1f1;
+}
+
+body>header{
+    padding-top: 120px;
+    /*background-color: red;*/
+}
+
+
+#main-nav{
+	position: fixed;
+	left: 50%;
+  height: 120px;
+	
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  background-color: #f1f1f1;
+  z-index: 1;
+}
+
+    /*ul#primary li:nth-child(1){*/
+    ul#primary, ul#primary li{
+      height: 120px;
+    }
+  
+    ul#primary li{
+      width: 20%;
+      text-align: center;
+    }
+
+    ul#primary li:first-child{
+      background-color: #5fc8d1;
+      width: 120px;
+    }
+
+        ul#primary li a.button{
+          background-color: transparent;
+          border: none;
+          font-family: 'brandonBold';
+          text-transform: uppercase;
+          font-size: 16px;
+          padding: 10px;
+          color: #809bb4;
+
+          position: relative;
+          top: 50%;
+
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+
+        ul#primary li a.button:hover{
+          color: #44596e;
+          text-decoration: underline;
+        }
+        
+        ul#primary li:first-child a.button{
+          color: white;
+          text-transform: capitalize;
+          font-size: 36px;
+        }
+
+
+
+
+
+
+/* @group product UI component  */
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+.ui-product {
+  border-radius: 5px;
+  /*background-color: red;*/
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ui-product figcaption {
+  height: 80px;
+  background-color: white;
+  position: relative;
+  top: -80px;
+}
+
+.ui-product ul li {
+  display: inline-block;
+}
+
+.ui-product ul li h1 {
+  font-size: 24px;
+}
+
+.ui-product ul li h2 {
+  font-size: 16px;
+}
+
+/*.ui-product img {
+  width: 100%;
+  height: 480px;
+  opacity: .3;
+}*/
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
