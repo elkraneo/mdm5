@@ -1,0 +1,33 @@
+article{
+	display: inline-block;
+	width: 180px;
+	height: 180px;
+}
+
+.papaya{
+	background-color: red;
+}
+.pera{
+	background-color: blue;
+}
+.manzana{
+	background-color: pink;
+}
+.mango{
+	background-color: green;
+}
+.platano{
+	background-color: white;
+}
+.maracuya{
+	background-color: black;
+}
+.lichi{
+	background-color: gray;
+}
+.mandarina{
+	background-color: yellow;
+}
+.coco{
+	background-color: purple;
+}
