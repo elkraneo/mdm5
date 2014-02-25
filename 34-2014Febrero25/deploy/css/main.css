@@ -1,0 +1,23 @@
+/*
+	@f+
+*/
+
+img{
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+ul li{
+	display: inline-block;
+}
+
+.transformImage{
+	-webkit-transform: scale(3) rotate(90deg);
+	-moz-transform: scale(3) rotate(90deg);
+	-ms-transform: scale(3) rotate(90deg);
+	-o-transform: scale(3) rotate(90deg);
+	transform: scale(3) rotate(90deg);
+}
