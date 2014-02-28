@@ -64,13 +64,77 @@
 // 	}
 // });
 
-$("<nav>").appendTo("body").load("nav.html #nav-es");
+// $("<section>").appendTo("body").load("nav.html #nav-es");
+// $("<nav>").appendTo("<section>").load("nav.html #nav-es");
+// $("<button>",{
+// 				id:"idioma",
+// 				text:"other language",
+// 				click:function () {
+// 					var idiomaNav = $("nav").attr("id");
+// 					console.log(idiomaNav);
+
+// 					if(idiomaNav == "nav-es"){
+// 						console.log("esta en ingles");
+// 						$("section").load("nav.html #nav-en");
+// 						$(this).text("otro idioma");
+// 					}else{
+// 						console.log("esta en español");
+// 						$("section").load("nav.html #nav-es");
+// 						$(this).text("other language");	
+// 					}
+
+
+//  				}
+// 			}).appendTo("body");
+
+$("<section>").appendTo("body").load("nav.html", function(){
+	$("#nav-en").hide();
+});
+
+
 $("<button>",{
-				id:"idioma",
-				text:"other language",
-				click:function () {
-					$("<nav>").appendTo("body").load("nav.html #nav-en");
-					$(this).text("otro idioma");
- 				} 
+	id:"idioma",
+	text:"other language",
+	click:function () {
+		var heightNav = $("nav").height();
+		console.log("heightNav: ", heightNav);
+
+					// $("#nav-en, #nav-es").toggle();
+					$("#nav-en, #nav-es").css({"position":"absolute"}).fadeToggle();
+
+					$(this).css({"position":"relative", "top":""+heightNav+"px"});
+
+				}
 			}).appendTo("body");
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
