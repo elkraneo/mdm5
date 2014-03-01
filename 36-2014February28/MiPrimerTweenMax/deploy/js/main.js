@@ -12,14 +12,14 @@
 var imgArray = $("img");
 
 for (var i = 0; i < imgArray.length; i++) {
-	TweenMax.to(imgArray[i],  2, {x:Math.random()*700,
-						y:Math.random()*700,
-						rotationX:Math.random()*360, 
-						rotationY:Math.random()*360, 
-						scaleX: Math.random()*5, 
-						scaleY: Math.random()*5,
-						delay: Math.random()*10,
-						ease:Bounce.easeOut,
-						repeat:-1, 
-						yoyo:true});
+	TweenMax.to(imgArray[i],  2, {	x: Math.random()*700,
+									y: Math.random()*700,
+									rotationX: Math.random()*360, 
+									rotationY: Math.random()*360, 
+									scaleX: Math.random()*5, 
+									scaleY: Math.random()*5,
+									delay: Math.random()*10,
+									ease: Bounce.easeOut,
+									repeat: -1, 
+									yoyo: true});
 };	
