@@ -1,0 +1,12 @@
+#galeria{
+	position: relative;
+}
+
+#galeria ul li{
+	position: relative;
+}
+
+#detalle{
+	background-color: red;
+	position: relative;
+}
