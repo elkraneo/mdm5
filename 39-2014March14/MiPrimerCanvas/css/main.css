@@ -1,0 +1,8 @@
+body{
+	background-image: url("../img/dlanham-Overlord.jpg");
+	background-size: cover;
+}
+
+#myCanvas{
+	border: 1px dotted black;
+}
