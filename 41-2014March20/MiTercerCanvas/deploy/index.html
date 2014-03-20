@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<canvas id="myCanvas" width="1200" height="1200">
+		Your browser doesn't support "canvas".
+	</canvas>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
+	<script src="js/main.js"></script>
+
+	<script>
+		var stats = new Stats();
+		// stats.setMode(1); // 0: fps, 1: ms
+
+		// Align top-left
+		stats.domElement.style.position = 'absolute';
+		stats.domElement.style.left = '0px';
+		stats.domElement.style.top = '0px';
+
+		document.body.appendChild( stats.domElement );
+
+		setInterval( function () {
+
+		    stats.begin();
+
+		    // your code goes here
+
+		    stats.end();
+
+		}, 1000 / 60 );
+	</script>
+</body>
+</html> 
