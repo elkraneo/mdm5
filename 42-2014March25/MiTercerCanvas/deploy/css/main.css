@@ -1,0 +1,15 @@
+* {
+	margin:0; 
+	padding:0;
+} 
+
+html, body { 
+	/* just to be sure these are full screen */
+	width:100%; 
+	height:100%;
+	background-color: black; 
+} 
+
+#myCanvas{
+	border: 1px dotted #111;
+}

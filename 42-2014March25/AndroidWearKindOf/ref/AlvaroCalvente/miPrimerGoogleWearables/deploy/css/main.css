@@ -1,0 +1,151 @@
+/* @fonts */
+
+@font-face {
+	font-family: 'robotolight';
+	src: url('fonts/roboto-light-webfont.eot');
+	src: url('fonts/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/roboto-light-webfont.woff') format('woff'),
+	url('fonts/roboto-light-webfont.ttf') format('truetype'),
+	url('fonts/roboto-light-webfont.svg#robotolight') format('svg');
+	font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'robotothin';
+	src: url('fonts/roboto-thin-webfont.eot');
+	src: url('fonts/roboto-thin-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/roboto-thin-webfont.woff') format('woff'),
+	url('fonts/roboto-thin-webfont.ttf') format('truetype'),
+	url('fonts/roboto-thin-webfont.svg#robotothin') format('svg');
+	font-weight: normal;
+    font-style: normal;
+}
+
+/* end fonts */
+
+
+* {
+	margin: 0;
+	padding: 0;
+}	
+
+img {
+	max-width: 30em;
+	margin: 0px;
+	/*vertical-align: middle;*/
+}
+
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	position: relative;
+}
+
+ul li {
+	display: inline-block;
+	position: relative;
+	margin: 0px -2px;
+	padding: 0;
+	width:400px;
+}
+
+figure {
+	height: 26em;
+}
+
+figcaption {
+	background-color: white;
+	width:100%;
+	height: 13em;
+	position: relative;
+	top:-13em;
+}
+
+figcaption h1 {
+	font-family: 'robotothin', sans-serif;
+	color: #bbb;
+	font-size: 1.5em;
+	position: relative;
+	top: .8em;
+	left: 2.9em;
+}
+
+figcaption q {
+	font-family: 'robotolight', sans-serif;
+	color: #bbb;
+	font-size: 2.2em;
+	position:relative;
+	left: 2em;
+	top: 0.3em;
+	display: inline-block;
+	width: 7em;
+	line-height: 1.2em;
+}
+
+ul li:nth-child(2) figure figcaption q {
+	width: 8em;
+}
+
+
+figcaption img {
+	width: 4em;
+	height: auto;
+	position: absolute;
+	top: -1.9em;
+	left: 17em;
+	
+}
+
+
+
+/* @group galleryMask */
+
+section#galleryMask {
+	margin-top: 2em;
+	width: 26em;
+	height: 26em;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1em solid #444;
+	position: relative;
+	-webkit-box-shadow: 0 0 10px #444;
+	-moz-box-shadow: 0 0 10px #444;
+	box-shadow: 0 0 10px #444;
+}
+
+article#imageContainer {
+	position: relative;
+}
+
+/* end of @group */
+
+
+/* @group galleryNav */
+
+nav#galleryNav {
+	width: 45px;
+	position: relative;
+	top: -3em;
+}
+
+nav#galleryNav button {
+	width: 1em;
+	height: 1em;
+	margin: 0;
+	padding: 0;
+	background-color: #aaa;
+	margin: 0px 2px;
+	opacity: .5;
+}
+
+nav#galleryNav button.dissapear {
+	
+	background-color: #a4c5f5;
+}
+
+
+/* end of @group */
+
+
+
