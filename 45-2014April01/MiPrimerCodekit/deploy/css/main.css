@@ -1,0 +1,47 @@
+html, body, ul, ol {
+  margin: 17px;
+  background-color: pink;
+  color: white;
+  font-size: 1.15em; }
+
+h1 {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  font-family: "Helvetica", sans-serif; }
+  h1:hover {
+    background-color: blue; }
+
+h2 {
+  font-family: "Helvetica", sans-serif; }
+
+h3 {
+  font-family: "Helvetica", sans-serif;
+  color: grey;
+  background-color: blue;
+  padding: 1em;
+  border-radius: 7px;
+  -webkit-box-shadow: 7px 7px black;
+  box-shadow: 7px 7px black; }
+
+p {
+  font-family: "Georgia", serif;
+  border-radius: 7px;
+  -webkit-box-shadow: 7px 7px black;
+  box-shadow: 7px 7px black;
+  width: 62.5%; }
+
+ol {
+  background-color: green; }
+  ol li {
+    background-color: red; }
+
+.message, .succes, .error {
+  border: 1px solid #f00;
+  padding: 11px;
+  color: #333; }
+
+.succes {
+  border-color: green; }
+
+.error {
+  border-color: red; }

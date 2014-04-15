@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <script>/*<![CDATA[*/(function(a){function b(a,b){if(+a)return~a||(d.cookie=h+"=; path=/");j=d.createElement(e),k=d.getElementsByTagName(e)[0],j.src=a,b&&(j.onload=j.onerror=b),k.parentNode.insertBefore(j,k)}function c(){n.api||b(l.shift()||-1,c)}if(this.Mobify)return;var d=document,e="script",f="mobify",g="."+f+".com/",h=f+"-path",i=g+"un"+f+".js",j,k,l=[!1,1],m,n=this.Mobify={points:[+(new Date)],tagVersion:[6,1],ajs:"//a.mobify.com/performance/css-tricks-1/a.js"},o=/((; )|#|&|^)mobify-path=([^&;]*)/g.exec(location.hash+"; "+d.cookie);o?(m=o[3])&&!+(m=o[2]&&sessionStorage[h]||m)&&(l=[!0,"//preview"+g+escape(m)]):(l=a()||l,l[0]&&l.push("//cdn"+i,"//files01"+i)),l.shift()?(d.write('<plaintext style="display:none;">'),setTimeout(c)):b(l[0])})(function(){if(/ip(hone|od|ad)|android|blackberry.*applewebkit|bb1\d.*mobile/i.test(navigator.userAgent)){return[1,"//cdn.mobify.com/swift/css-tricks-1/production/mobify.js"]}return[0,Mobify.ajs]})/*]]>*/</script>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width">
+
+	
+	<title>CSS Media Queries &amp; Using Available Space | CSS-Tricks</title>
+
+	<link rel="shortcut icon" href="http://cdn.css-tricks.com/favicon.ico">
+
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="CSS-Tricks Search">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/CssTricks">
+
+	<link rel="author" href="https://plus.google.com/101987072260327250694/posts">
+
+	
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.5.2.2 - http://yoast.com/wordpress/seo/ -->
+<meta name="description" content="We&#039;ve covered using CSS media queries to assign different stylesheets depending on browser window size. In that example, we changed the layout of the entir"/>
+<link rel="canonical" href="http://css-tricks.com/css-media-queries/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CSS Media Queries &amp; Using Available Space | CSS-Tricks" />
+<meta property="og:description" content="We&#039;ve covered using CSS media queries to assign different stylesheets depending on browser window size. In that example, we changed the layout of the entir" />
+<meta property="og:url" content="http://css-tricks.com/css-media-queries/" />
+<meta property="og:site_name" content="CSS-Tricks" />
+<meta property="article:publisher" content="https://www.facebook.com/CSSTricks" />
+<meta property="article:section" content="Article" />
+<meta property="article:published_time" content="2010-07-06T05:26:30+00:00" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaquerylink.png" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-narrowest.png" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-justicon.png" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-emailpreface.png" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-emailonly.png" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-widest.png" />
+<meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-alltogether.png" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@Real_CSS_Tricks"/>
+<meta name="twitter:domain" content="CSS-Tricks"/>
+<meta name="twitter:creator" content="@Real_CSS_Tricks"/>
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="CSS-Tricks &raquo; CSS Media Queries &amp; Using Available Space Comments Feed" href="http://css-tricks.com/css-media-queries/feed/" />
+<link rel='stylesheet' id='jetpack-subscriptions-css'  href='http://cdn.css-tricks.com/wp-content/plugins/jetpack/modules/subscriptions/subscriptions.css?ver=3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-child-bbpress-css'  href='http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/css/bbpress.css?ver=2.5.3-5249' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='http://cdn.css-tricks.com/wp-content/plugins/wp-polls/polls-css.css?ver=2.63' type='text/css' media='all' />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js?ver=3.8.1'></script>
+<script type='text/javascript' src='http://css-tricks.com/wp-includes/js/underscore.min.js?ver=1.4.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var markdownify = {"ajax_url":"\/wp-admin\/admin-ajax.php","nonce":"cb5e9c9988"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://cdn.css-tricks.com/wp-content/plugins/jetpack-markdown-live-preview-comments/js/markdownify.js?ver=0.126648001396003297'></script>
+<link rel='shortlink' href='http://css-tricks.com/?p=6731' />
+<!-- Better Art Direction Styles -->
+
+
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 13px;
+	line-height: 15px;
+	height: 15px;
+	background-image: url('http://cdn.css-tricks.com/wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #ffffff;
+}
+</style>
+
+  <link rel="stylesheet" href="//cloud.typography.com/610186/691184/css/fonts.css">
+
+  <!--[if !IE]><!-->
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/style.css?v=2.2">
+  <!--<![endif]-->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/css/oldie.css">
+  <![endif]-->
+  <!--[if IE 9]>
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/style.css?v1.2">
+  <![endif]-->
+
+			<script src='/wp-includes/js/comment-reply.js'></script>
+    <script src="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/js/showdown-ck.js"></script>
+	
+	
+	
+  
+	
+	
+  
+	
+	
+</head>
+
+ 
+
+<body class="single single-post postid-6731 single-format-standard user-0 ">
+
+    <script>
+  (function(){
+    var bsa = document.createElement('script');
+       bsa.async = true;
+       bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+  })();
+  </script>
+  
+  <div class="page-wrap">
+
+    <header id="top" class="top">
+
+  <div class="logo">
+    <a href="/">CSS-Tri<span>cks</span></a>
+  </div>
+
+    <a class="top-treehouse-ad group" href="http://teamtreehouse.com/join/now?utm_source=css-tricks&utm_medium=leaderboard&utm_campaign=css-tricks-april-2014&cid=1148">
+    <svg version="1.1" class="treehouse-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="606.777px" height="133.209px" viewBox="0 0 606.777 133.209" enable-background="new 0 0 606.777 133.209"
+   xml:space="preserve">
+<g class="treehouse-logo-letter">
+  <path fill="#FFFFFF" d="M169.271,99.972c-11.407,0-16.559-7.819-16.559-18.123V45.511c0-3.588,2.668-6.44,6.164-6.44
+    c3.404,0,6.164,2.852,6.164,6.44v6.255h11.499c3.036,0,5.704,2.3,5.704,5.52c0,3.036-2.668,5.335-5.704,5.335H165.04v18.951
+    c0,4.416,1.932,6.809,5.979,6.809c2.024,0,4.048-0.553,5.704-1.012c4.692-1.104,7.636,1.84,7.636,5.243
+    c0,2.024-1.012,4.14-3.864,5.428C177.275,99.512,172.768,99.972,169.271,99.972z"/>
+  <path fill="#FFFFFF" d="M222.813,56.458c0,2.484-1.932,5.796-5.796,5.796c-2.116,0-4.14-0.92-6.899-0.828
+    c-3.036,0.092-4.784,1.748-4.784,5.979V93.44c0,3.496-2.667,6.256-6.164,6.256c-3.404,0-6.164-2.76-6.164-6.256V65.106
+    c0-9.567,5.612-15.731,16.191-15.731c3.036,0,6.071,0.276,7.911,0.736C220.881,51.123,222.813,53.423,222.813,56.458z"/>
+  <path fill="#FFFFFF" d="M270.653,72.742c0,3.588-1.84,6.163-6.348,6.163h-24.471v0.92c0,5.797,4.416,8.924,10.58,8.924
+    c3.312,0,6.715-0.828,9.843-2.023c4.876-1.84,8.096,1.472,8.096,4.875c0,1.748-0.644,3.681-3.128,5.152
+    c-3.404,2.023-9.292,3.22-15.179,3.22c-12.695,0-21.251-8.003-22.171-19.503c-0.276-3.588-0.184-8.647,0-11.5
+    c1.104-11.958,9.66-19.594,21.711-19.594c12.511,0,21.067,8.372,21.067,21.342V72.742z M257.774,70.534
+    c0.644,0,1.012-0.367,1.012-1.104c0.276-5.612-3.22-9.384-9.2-9.384c-6.532,0-9.751,4.14-9.751,10.487H257.774z"/>
+  <path fill="#FFFFFF" d="M322.633,72.742c0,3.588-1.84,6.163-6.348,6.163h-24.471v0.92c0,5.797,4.416,8.924,10.58,8.924
+    c3.312,0,6.715-0.828,9.843-2.023c4.876-1.84,8.096,1.472,8.096,4.875c0,1.748-0.644,3.681-3.128,5.152
+    c-3.404,2.023-9.292,3.22-15.179,3.22c-12.695,0-21.251-8.003-22.171-19.503c-0.276-3.588-0.184-8.647,0-11.5
+    c1.104-11.958,9.66-19.594,21.711-19.594c12.511,0,21.067,8.372,21.067,21.342V72.742z M309.753,70.534
+    c0.644,0,1.012-0.367,1.012-1.104c0.276-5.612-3.22-9.384-9.2-9.384c-6.532,0-9.751,4.14-9.751,10.487H309.753z"/>
+  <path fill="#FFFFFF" d="M345.542,52.963c2.024-1.84,6.716-3.588,11.591-3.588c11.684,0,18.584,6.992,18.584,20.147v23.643
+    c0,3.68-2.576,6.531-6.256,6.531c-3.404,0-6.072-2.852-6.072-6.531V70.167c0-5.612-3.22-8.74-8.279-8.74
+    c-3.863,0-7.636,1.748-9.567,3.864v28.058c0,3.496-2.576,6.348-6.071,6.348c-3.404,0-6.256-2.852-6.256-6.348V39.531
+    c0-3.588,2.668-6.348,6.163-6.348c3.404,0,6.164,2.76,6.164,6.348V52.963z"/>
+  <path fill="#FFFFFF" d="M408.562,99.972c-12.052,0-21.159-7.728-22.079-18.675c-0.275-3.68-0.275-9.476,0-13.155
+    c0.92-11.04,10.027-18.767,22.079-18.767c12.144,0,21.067,7.728,21.987,18.767c0.275,3.68,0.275,9.384,0,13.063
+    C429.629,92.245,420.705,99.972,408.562,99.972z M418.312,70.074c-0.275-5.244-3.955-8.923-9.751-8.923s-9.384,3.68-9.844,8.923
+    c-0.185,2.483-0.185,6.808,0,9.2c0.46,5.243,4.048,8.923,9.844,8.923s9.384-3.68,9.751-8.923
+    C418.497,76.881,418.497,72.557,418.312,70.074z"/>
+  <path fill="#FFFFFF" d="M441.312,56.183c0-3.68,2.209-6.532,6.072-6.532c3.496,0,6.256,2.852,6.256,6.532v23.458
+    c0,5.52,3.588,8.556,8.832,8.556c4.047,0,7.083-1.196,9.016-2.392V55.999c0-3.496,2.575-6.348,6.163-6.348
+    c3.403,0,6.163,2.852,6.163,6.348v34.406c0,2.115-0.551,3.312-2.207,4.324c-2.852,2.023-9.568,5.243-19.411,5.243
+    c-13.247,0-20.884-7.175-20.884-20.147V56.183z"/>
+  <path fill="#FFFFFF" d="M532.391,83.965c0,10.303-8.556,16.007-19.227,16.007c-8.648,0-14.168-2.483-17.572-5.335
+    c-2.207-1.84-2.852-5.336-1.104-7.637c1.84-2.483,4.968-3.035,8.004-1.104c2.852,1.84,6.623,3.035,10.947,3.035
+    c4.783,0,6.992-1.747,6.992-4.23c0-2.024-1.473-3.404-5.336-4.324c-3.312-0.736-3.221-0.645-6.809-1.564
+    c-7.543-1.932-13.431-6.163-13.431-14.075c0-9.936,8.003-15.363,18.767-15.363c5.796,0,11.775,1.472,14.996,4.14
+    c2.668,2.208,2.483,5.979,0.551,8.188c-1.84,2.024-4.967,2.3-8.003,0.736c-2.392-1.196-5.612-2.024-8.003-2.024
+    c-4.601,0-6.532,1.748-6.532,3.956c0,1.932,1.38,3.22,5.52,4.14l6.532,1.472C527.883,72.19,532.391,76.698,532.391,83.965z"/>
+  <path fill="#FFFFFF" d="M583.45,72.742c0,3.588-1.84,6.163-6.348,6.163h-24.471v0.92c0,5.797,4.415,8.924,10.579,8.924
+    c3.312,0,6.716-0.828,9.844-2.023c4.876-1.84,8.096,1.472,8.096,4.875c0,1.748-0.645,3.681-3.128,5.152
+    c-3.403,2.023-9.292,3.22-15.179,3.22c-12.695,0-21.252-8.003-22.172-19.503c-0.275-3.588-0.184-8.647,0-11.5
+    c1.104-11.958,9.66-19.594,21.711-19.594c12.512,0,21.067,8.372,21.067,21.342V72.742z M570.57,70.534
+    c0.645,0,1.013-0.367,1.013-1.104c0.276-5.612-3.22-9.384-9.2-9.384c-6.531,0-9.751,4.14-9.751,10.487H570.57z"/>
+</g>
+<g class="treehouse-logo-letter">
+  <path fill="#FFFFFF" d="M593.32,56.023c0,0.63-0.48,1.11-1.11,1.11c-0.659,0-1.14-0.51-1.14-1.11v-5.16h-1.68
+    c-0.57,0-1.051-0.48-1.051-1.05c0-0.63,0.48-1.08,1.051-1.08h5.549c0.57,0,1.051,0.45,1.051,1.08c0,0.57-0.48,1.05-1.051,1.05
+    h-1.619V56.023z M600.1,49.963l0.96,4.2l0.99-4.2c0.18-0.84,0.899-1.35,1.649-1.35c0.871,0,1.561,0.51,1.74,1.56l0.87,5.52
+    c0.12,0.66-0.12,1.32-0.78,1.44c-0.779,0.15-1.289-0.3-1.38-0.96l-0.6-4.65l-1.08,4.35c-0.21,0.75-0.66,1.26-1.41,1.26
+    c-0.69,0-1.17-0.45-1.409-1.26l-1.08-4.38l-0.601,4.68c-0.09,0.66-0.6,1.11-1.38,0.96c-0.66-0.12-0.9-0.78-0.779-1.44l0.869-5.49
+    c0.18-1.08,0.9-1.59,1.74-1.59C599.199,48.613,599.92,49.123,600.1,49.963z"/>
+</g>
+<path fill="#4CA454" class="treehouse-logo-shape" d="M108.197,24.309c-4.414-2.496-11.464,1.518-15.745,8.964L84.7,46.756
+  c-2.832,5.606-2.443,12.281,1.149,17.434l0.226,0.324c3.592,5.153,8.408,9.917,10.002,11.614c0.936,1,1.653,2.232,2.048,3.643
+  c1.309,4.682-1.424,9.537-6.104,10.848c-4.682,1.309-9.539-1.424-10.848-6.105c-0.329-1.174-0.402-2.36-0.254-3.499
+  c0.251-1.934-0.369-5.083-3.143-8.177c-2.773-3.092-8.441,2.749-10.272,8.756l-0.086,0.275c-1.833,6.007-2.99,11.25-2.644,11.754
+  c0.207,0.301,0.397,0.617,0.573,0.946c2.571,4.839,0.734,10.845-4.104,13.417s-10.846,0.734-13.417-4.104
+  c-2.572-4.84-0.734-10.845,4.104-13.417c0.216-0.115,0.437-0.222,0.658-0.32c0.37-0.162,1.417-2.688,2.327-5.67
+  c0.911-2.983,1.648-5.4,1.648-5.4c0.098-0.317,0.182-0.632,0.259-0.943l4.896-17.482l-5.237,10.75
+  c-0.622-2.041-1.647-2.113-3.895-0.506c-1.355,0.969-3.596,2.879-4.691,3.662c-2.055,1.471-3.775,4.327-4.686,6.078
+  c-0.535,1.029-1.286,1.971-2.245,2.746c-3.749,3.043-9.255,2.469-12.296-1.279c-3.042-3.748-2.469-9.254,1.28-12.295
+  c1.099-0.893,2.349-1.475,3.644-1.756c2.203-0.478,9.693-5.054,14.207-8.283c0.808-0.579,1.486-1.125,2.037-1.632l12.05-9.152
+  l-10.494,5.672c0,0-1.068-0.108-2.377,0.037c-3.841,0.426-7.798,0.967-8.545,1.918c-0.441,0.562-0.967,1.073-1.577,1.51
+  c-3.502,2.523-8.388,1.729-10.911-1.775c-2.524-3.503-1.729-8.39,1.774-10.911c1.446-1.042,3.125-1.517,4.777-1.471
+  c2.808,0.077,10.201,1.576,16.384,0.48l1.589-0.281c6.185-1.096,13.588-6.48,16.54-12.026c0,0,2.888-5.073,6.452-11.333
+  c3.564-6.258,3.3-13.115-0.587-15.313l-7.041-3.98c-3.551-2.008-9.365-2.011-12.92-0.006L6.462,28.835
+  C2.908,30.838,0,35.817,0,39.897v53.416c0,4.08,2.908,9.059,6.462,11.062l48.486,27.335c3.555,2.004,9.369,2,12.92-0.008
+  l48.321-27.318c3.553-2.009,6.458-6.99,6.458-11.07V39.897c0-4.08-2.906-9.063-6.458-11.07
+  C116.189,28.827,112.61,26.804,108.197,24.309z"/>
+</svg>
+    <div class="treehouse-slogan">
+      <span class="dreams">Grow your CSS skills.</span>
+      <strong class="love">Land your dream job.</strong>
+    </div>
+  </a>
+  
+  <section class="search" role="search">
+
+    <form id="search-form" action="/search-results/">
+
+      <div>
+        <label for="q" id="search-label">
+          <span class="screen-reader">Search</span>
+          <svg viewBox="0 0 100 100" class="shape-search">
+            <use xlink:href="#shape-search"></use>
+          </svg>
+        </label>
+        <input aria-labelledby="search-label" id="q" type="search" name="q" class="search-field" value="">
+        <input type="submit" value="Search" class="screen-reader">
+      </div>
+
+    </form>
+
+  </section>
+
+</header>
+    <nav class="main-nav" id="main-nav">
+
+  <a href="/" class="home">
+    <svg viewBox="0 0 100 25" class="shape-tab">
+      <use xlink:href="#shape-tab"></use>
+    </svg>
+    <span>Blog</span>
+  </a>
+  <a href="/video-screencasts/" class="videos">
+    <svg viewBox="0 0 100 25" class="shape-tab">
+      <use xlink:href="#shape-tab"></use>
+    </svg>
+    <span>Videos</span>
+  </a>
+  <a href="/almanac/" class="almanac">
+    <svg viewBox="0 0 100 25" class="shape-tab">
+      <use xlink:href="#shape-tab"></use>
+    </svg>
+    <span>Almanac</span>
+  </a>
+  <a href="/snippets/" class="snippets">
+    <svg viewBox="0 0 100 25" class="shape-tab">
+      <use xlink:href="#shape-tab"></use>
+    </svg>
+    <span>Snippets</span>
+  </a>
+  <a href="/forums/" class="forums">
+    <svg viewBox="0 0 100 25" class="shape-tab">
+      <use xlink:href="#shape-tab"></use>
+    </svg>
+    <span>Forums</span>
+  </a>
+
+  <a href="/lodge/" class="lodge">
+    <svg viewBox="0 0 100 25" class="shape-tab-right">
+      <use xlink:href="#shape-tab-right"></use>
+    </svg>
+    <span><em>The</em> Lodge</span>
+  </a>
+
+</nav>
+    <div class="content-wrap">
+
+<header class="article-header">
+	<h1>CSS Media Queries &#038; Using Available Space</h1>
+
+	<p class="time">
+
+		Published
+		<time datetime="2010-07-06">
+			July 6, 2010		</time>
+
+		by Chris Coyier	</p>
+</header>
+
+<div class="grid group">
+
+	<section class="blog-posts grid-2-3">
+
+		<article class="module" id="post-6731">
+
+			<div class="google-ad">
+        				<div id="bsap_1279518" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+              </div>
+
+			<p>We've covered using CSS media queries to assign <a href="http://css-tricks.com/resolution-specific-stylesheets/">different stylesheets depending on browser window size</a>. In that example, we changed the layout of the entire page based on the space available. It isn't required that we make such drastic changes with this technique though, so in this tutorial we'll go over a design tweak with a smaller scope. We'll also cover the syntax for using media queries within a single stylesheet and more examples of that.</p>
+<p><span id="more-6731"></span></p>
+<p>The CSS media query syntax for calling an external stylesheet is like this:</p>
+<pre><code class="html">&lt;link rel='stylesheet' media='screen and (min-width: 701px) and (max-width: 900px)' href='css/medium.css' /&gt;</code></pre>
+<p><img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaquerylink.png" alt="" width="570" height="95" class="alignnone size-full wp-image-6733" /></p>
+<p>You may be familiar with the media attribute, normally being "screen" or "print" or even a comma separated list, like "screen, projection". The media attribute can be brought directly inside a CSS file, like this:</p>
+<pre><code class="css">@media screen {
+      body {
+          width: 75%;
+      }
+}
+
+@media print {
+      body {
+          width: 100%;
+      }
+}</code></pre>
+<p>Likewise, you can use more advanced CSS media queries like:</p>
+<pre><code class="css">@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+  body {
+    background: #ccc;
+  }
+}</code></pre>
+<p>You may use as many media queries as you would like in a CSS file. Note that you may use the <strong>and</strong> operator to require multiple queries to be true, but you have to use the comma (,) as the <strong>or</strong> operator to separate groups of multiple queries. The <strong>not</strong> keyword can be used to alter the logic as well.</p>
+<h3>Example</h3>
+<p>Let's say we have a fluid width design where the sidebar is 35% of the width of the page. That means depending on the width of the browser window, that sidebar could be quite narrow or quite wide, that's just the nature of fluid width designs. With CSS media queries, we can say "if the browser is really narrow, do this, if it's wider, do this, if it's really wide, do this." Note that measuring width isn't the only thing media queries can do, it's just a particularly practical example.</p>
+<p>In our example sidebar, we are going have a list of names of the Super Team which function as email links. The HTML is fairly simple:</p>
+<pre><code class="html">&lt;ul id="nav"&gt;
+   &lt;li&gt;&lt;a data-email="chriscoyier@gmail.com" href="mailto:chriscoyier@gmail.com"&gt;Chris Coyier&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a data-email="isuredo@likeher.com" href="mailto:isuredo@likeher.com"&gt;Elisabeth Moss&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a data-email="marry@me.com" href="mailto:marry@me.com"&gt;Amanda Righetti&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>It's just a list of links. The <tt>href</tt> attribute is a <tt>mailto:</tt> link. The only thing you might find unusual is the <tt>data-email</tt> attribute. In HTML5, you can <a href="http://dev.w3.org/html5/spec/Overview.html#custom-data-attribute">use attributes prefixed with <tt>data-</tt></a> to store information, and it's perfectly valid. We are going to want to use that data later, but the <tt>href</tt> value isn't quite what we need having that <tt>mailto:</tt> link, hence the data attribute.</p>
+<p>The default styling for the list will be this:</p>
+<pre><code class="css">#sidebar ul li a {
+  color: #900;
+  text-decoration: none;
+  padding: 3px 0; 
+  display: block;
+}</code></pre>
+<div class="image-wrap"><img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-narrowest.png" alt="" title="mediaqueries-narrowest" width="297" height="193" class="alignnone size-full wp-image-6738" />
+<p>At narrow browser window widths, the default styling applies. Just a list of links.</p>
+</div>
+<p>When the browser gets a bit wider, in our example between 520 and 699px, we're going to use that extra space that opens up in the sidebar to apply an email icon to each list item.</p>
+<pre><code class="css">@media all and (max-width: 699px) and (min-width: 520px) {
+  #sidebar ul li a {
+    padding-left: 21px;
+    background: url(../images/email.png) left center no-repeat;
+  }
+}</code></pre>
+<div class="image-wrap">
+<img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-justicon.png" alt="" title="mediaqueries-justicon" width="330" height="190" class="alignnone size-full wp-image-6739" />
+<p>Icons are applied to the list items as we know that we have room for them now.</p>
+</div>
+<p>As we get wider, from 700 to 1000px, we'll use the extra space again to preface the links with the text "Email: " (using <a href="http://css-tricks.com/css-content/">CSS Content</a>) instead of just the icon.</p>
+<pre><code class="css">@media all and (max-width: 1000px) and (min-width: 700px) {
+  #sidebar ul li a:before {
+    content: "Email: ";
+    font-style: italic;
+    color: #666;
+  }
+}</code></pre>
+<div class="image-wrap">
+<img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-emailpreface.png" alt="" title="mediaqueries-emailpreface" width="388" height="191" class="alignnone size-full wp-image-6740" />
+<p>Using CSS content / psuedo element, we can preface the link with descriptive text without altering the content in the HTML</p>
+</div>
+<p>Wider still, at browser window widths above 1001px, we'll literally append the email address to the links. This is where that HTML5 data attribute comes in.</p>
+<pre><code class="css">@media all and (min-width: 1001px) {
+  #sidebar ul li a:after {
+    content: " (" attr(data-email) ")";
+    font-size: 11px;
+    font-style: italic;
+    color: #666;
+  }
+}</code></pre>
+<div class="image-wrap">
+<img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-emailonly.png" alt="" title="mediaqueries-emailonly" width="447" height="200" class="alignnone size-full wp-image-6741" />
+<p>Again the content is adjusted, the email is added as a pseduo element purely with CSS.</p>
+</div>
+<p>At really wide widths, above 1151px, we will again add the icon as we used before. The cool part here is that we don't have to write an additional media query segment, we can just append an additional media query to our already existing one using a comma (behaves like OR operator) on the medium-width one we already wrote. </p>
+<pre><code class="css">@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+  #sidebar ul li a {
+    padding-left: 21px;
+    background: url(../images/email.png) left center no-repeat;
+  }
+}</code></pre>
+<div class="image-wrap">
+<img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-widest.png" alt="" title="mediaqueries-widest" width="465" />
+<p>At the widest, we can use all the flair we have available.</p>
+</div>
+<h4>All together now</h4>
+<pre><code class="css">#sidebar ul li a {
+  color: #900;
+  text-decoration: none;
+  padding: 3px 0; 
+  display: block;
+}
+
+@media all and (min-width: 1001px) {
+  #sidebar ul li a:after {
+    content: " (" attr(data-email) ")";
+    font-size: 11px;
+    font-style: italic;
+    color: #666;
+  }
+}
+
+@media all and (max-width: 1000px) and (min-width: 700px) {
+  #sidebar ul li a:before {
+    content: "Email: ";
+    font-style: italic;
+    color: #666;
+  }
+}
+
+@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+  #sidebar ul li a {
+    padding-left: 21px;
+    background: url(../images/email.png) left center no-repeat;
+  }
+}</code></pre>
+<p><img src="http://cdn.css-tricks.com/wp-content/uploads/2010/07/mediaqueries-alltogether.png" alt="" title="mediaqueries-alltogether" width="570" height="751" class="alignnone size-full wp-image-6744" /></p>
+<h4>Video demo</h4>
+<p><object width="570" height="164"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=13048400&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=13048400&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="570" height="164"></embed></object></p>
+<h4>Live demo / download</h4>
+<p><a href="http://css-tricks.com/examples/MediaQueriesSidebar/" class="button">View Demo</a> &nbsp; <a href="http://css-tricks.com/examples/MediaQueriesSidebar.zip" class="button">Download Files</a></p>
+<h3>Browser support</h3>
+<p>The browser support for media queries is surprisingly decent. For the queries in this particular demo (utilizing min and max widths), current version of Firefox, Safari (including Mobile), Chrome, and Opera are all supporting it. Internet Explorer 9 will be supporting it, but 8 and below do not. If I wanted to deliver the best possible experience in IE 8 and below, I'd either fake it with JavaScript like I did in <a href="http://css-tricks.com/resolution-specific-stylesheets/">this article</a>, or use an <a href="http://css-tricks.com/how-to-create-an-ie-only-stylesheet/">IE specific stylesheet</a> and style it in the same style as the most common browser width according to analytics.</p>
+<p>Note that milage may vary on individual types of queries. For example, the iPhone supports the width queries but <a href="http://www.quirksmode.org/blog/archives/2010/04/the_orientation.html">does not support</a> the orientation queries. The iPad supports both. </p>
+<h3>More on media queries</h3>
+<p>Measuring width is a nice practical example of media queries, but it isn't the only thing available. Below are some more of them (not a comprehensive list). <a href="http://www.w3.org/TR/css3-mediaqueries/">The spec</a> lists lots more. </p>
+<h4>Types</h4>
+<p>HTML4 had these media types, which are all still valid: <tt>aural</tt>, <tt>braille</tt>, <tt>handheld</tt>, <tt>print</tt>, <tt>projection</tt>, <tt>screen</tt>, <tt>tty</tt>, and <tt>tv</tt>.  HTML5 may include more as it needs them. The spec includes ‘3d-glasses’, which is awesome. The <tt>all</tt> keyword will target all types.</p>
+<pre><code class="css">@media screen, projection { ... }</code></pre>
+<h4>Dimensions</h4>
+<p>You get <tt>height</tt> and <tt>width</tt>, which query against the current browser window height and width. You could use them as-is, but that would probably be rare. Both of them accept min/max prefixes, so more commonly you'd used them as <tt>min-width</tt>, <tt>max-width</tt>, <tt>min-height</tt>, <tt>max-height</tt>. </p>
+<p>There is also <tt>device-width</tt> and <tt>device-height</tt>, which also provide <tt>min-device-width</tt>, <tt>max-device-width</tt>, <tt>min-device-height</tt>, and <tt>max-device-height</tt>. </p>
+<pre><code class="css">@media (min-device-width: 640px) { ... }</code></pre>
+<h4>Orientation / Aspect Ratio</h4>
+<p>You can query against the aspect ratio of the screen as well with <tt>device-aspect-ratio</tt>.</p>
+<pre><code class="css">@media screen and (device-aspect-ratio: 16/9) { ... }</code></pre>
+<p>Or if the screen is in portrait (height larger than width) or landscape (width larger than height) mode.</p>
+<pre><code class="css">@media (orientation:portrait) { ... }</code></pre>
+<h4>Color</h4>
+<p>You can query on if the screen is in color or not and details about that.</p>
+<pre><code class="css">@media (color) { /* Screen is in color */ }
+
+@media (min-color-index: 256) { /* Screen has at least 256 colors */ }
+
+@media (monochrome) { /* Screen is monochrome */ }</code></pre>
+<h3>Elsewhere</h3>
+<p>This has been a hot topic lately. You can hear some <a href="http://5by5.tv/bigwebshow/9">smart people talk about it</a> on The Big Web Show. Here are some other cool uses of it going around recently:</p>
+<ul>
+<li>Andy Clarke <a href="http://forabeautifulweb.com/blog/about/proportional_leading_with_css3_media_queries/">shows how</a> the the longer the line length the more readable text can be with taller line height.</li>
+<li><a href="http://hicksdesign.co.uk/">Jon Hick's site</a> rearranges itself to have double sidebars, single sidebar, or no sidebar according to available space. It even scales down to mobile sizes nicely.</li>
+<li>Ethan Marcotte's demo for A List Apart doesn't use media queries, but shows other ways a design can be <a href="http://www.alistapart.com/d/responsive-web-design/ex/ex-site-flexible.html">effectively flexible</a>.</li>
+<li><a href="http://colly.com/">Simon Collison's site</a> rearranges it's grid to fit different browser sizes.</li>
+<li>Panic uses <a href="http://www.campaignmonitor.com/blog/post/3116/what-you-can-learn-from-panics-email-marketing/">@media in their HTML emails</a> to make them look awesome in desktop or mobile email clients.</li>
+</ul>
+
+			
+			<h5 class="share-on-title">Share On</h5>
+
+			<a class="share-on-link share-on-twitter" href="https://twitter.com/intent/tweet?text=CSS Media Queries &#038; Using Available Space&url=http://css-tricks.com/css-media-queries/&via=real_css_tricks">Twitter</a>
+
+			<a class="share-on-link share-on-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://css-tricks.com/css-media-queries/">Facebook</a>
+			
+			<a class="share-on-link share-on-googleplus" href="https://plus.google.com/share?url=http://css-tricks.com/css-media-queries/">Google+</a>
+
+		</article>
+
+		<div class='yarpp-related'>
+<h4 class="related-articles-title">Related Articles</h4>
+
+<section class="related-posts grid nopadding group">
+
+
+  
+    <div class="grid-1-2">
+
+      <div class="module module-related">
+
+        <h2 class="h4">
+          <a href="http://css-tricks.com/logic-in-media-queries/">
+            Logic in Media Queries          </a>
+        </h2>
+
+        <p>Just in case you have brain farts about this constantly like I do.</p>
+</p>
+<p>If</p>
+<p>That&#8217;s what media queries are: logical &hellip;</p>
+
+        <a href="http://css-tricks.com/logic-in-media-queries/">Read Article &rarr;</a>
+
+      </div>
+
+    </div>
+
+  
+    <div class="grid-1-2">
+
+      <div class="module module-related">
+
+        <h2 class="h4">
+          <a href="http://css-tricks.com/bandwidth-media-queries/">
+            Bandwidth Media Queries          </a>
+        </h2>
+
+        <p>They don&#8217;t exist. But wouldn&#8217;t that be nice? </p>
+<p>Take for instance the markup <a href="http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/">being discussed</a> for the<br />
+ element:</p>
+<p><code>&lt;picture alt="A &hellip;</code></p>
+
+        <a href="http://css-tricks.com/bandwidth-media-queries/">Read Article &rarr;</a>
+
+      </div>
+
+    </div>
+
+  
+
+</section>
+</div>
+
+    			<div class="bsap-doubles">
+        <div id="bsap_1250418" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+      </div>
+    
+					<section id="comments">
+
+
+
+	<h1 class="h2 comments-title">
+		Comments
+	</h1>
+
+	<ol class="commentlist group">
+		
+    <li class="comment even thread-even depth-1" id="li-comment-79906">
+
+      <div class="grid group comment-wrap" id="comment-79906">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a7bf121ff29c67f31c4d858c81d36570?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.jordanwalker.net' rel='external nofollow' class='url'>Jordan Walker</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79906"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T05:57:35+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Excellent implementation, I&#8217;ll be sure to note this for future development.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79906#respond' onclick='return addComment.moveForm("comment-79906", "79906", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1 featured" id="li-comment-79908">
+
+      <div class="grid group comment-wrap" id="comment-79908">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/1407b9d076a08cc2345026f1a9cc8cc3?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://andycroll.com' rel='external nofollow' class='url'>Andy Croll</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79908"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T06:03:17+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I literally relaunched my site today using @media queries. Feel free to check it out. All the CSS is in the page as it&#8217;s a tumblr theme.</p>
+<p><a href="http://stream.andycroll.com" rel="nofollow">http://stream.andycroll.com</a></p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79908#respond' onclick='return addComment.moveForm("comment-79908", "79908", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79909">
+
+      <div class="grid group comment-wrap" id="comment-79909">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/65b592bc274810500a6f44e192e38026?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.darrnick.com' rel='external nofollow' class='url'>Darren Nickerson</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79909"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T06:08:41+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thats a very cool technique. I have to hand it to you Chris the quality of your articles has really went up lately. Keep up the good work!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79909#respond' onclick='return addComment.moveForm("comment-79909", "79909", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-79911">
+
+      <div class="grid group comment-wrap" id="comment-79911">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/1de4189037d53a78f3436d0a4bd1040e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://skhot.com' rel='external nofollow' class='url'>skhot</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79911"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T06:37:36+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Dig the new &#8220;Video Demo&#8221; (not sure if that&#8217;s new or not but I just noticed it).</p>
+<p>Thanks for the awesome tip!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79911#respond' onclick='return addComment.moveForm("comment-79911", "79911", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79912">
+
+      <div class="grid group comment-wrap" id="comment-79912">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/aaae281a9b889f69ec757457b3643942?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">bill</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79912"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T07:00:44+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>You may want to point out that CSS media queries don&#8217;t work in IE8 and below and are part of the W3C&#8217;s current CSS3 recommendation (<a href="http://www.w3.org/TR/css3-mediaqueries/" rel="nofollow">http://www.w3.org/TR/css3-mediaqueries/</a>).</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79912#respond' onclick='return addComment.moveForm("comment-79912", "79912", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment byuser comment-author-chriscoyier bypostauthor odd alt depth-2" id="li-comment-79913">
+
+      <div class="grid group comment-wrap" id="comment-79913">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://chriscoyier.net' rel='external nofollow' class='url'>Chris Coyier</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79913"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T07:02:03+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I did, in the section &#8220;Browser Support&#8221;</p>
+<blockquote><p>Internet Explorer 9 will be supporting it, but 8 and below do not.</p></blockquote>
+<p>&#8230;along with other browser support information. =)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2 buried" id="li-comment-79922">
+
+      <div class="grid group comment-wrap" id="comment-79922">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/6a151ff4a47b68e236d9a6267840f428?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.tipsbytony.com' rel='external nofollow' class='url'>Tony</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79922"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T09:25:02+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>You may want to read the entire article before commenting. ;)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2 buried" id="li-comment-79934">
+
+      <div class="grid group comment-wrap" id="comment-79934">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/dcf6a87373b8a8a44934bbf9ea75baa0?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">tully</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79934"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T13:54:51+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Tony, you may want to not come off like a tool. Whoops, too late!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2" id="li-comment-569348">
+
+      <div class="grid group comment-wrap" id="comment-569348">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/16d045aef1a42782d5fc6ee35cd294fc?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">MrPigface</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-569348"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-10-01T17:17:50+00:00">October 1, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Haha gold!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-79917">
+
+      <div class="grid group comment-wrap" id="comment-79917">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/664e9bfc76df09b839e730bcfc72207e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ant</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79917"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T08:18:44+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>This jq plugin may be used for IE:</p>
+<p><a href="http://protofunc.com/scripts/jquery/mediaqueries/" rel="nofollow">http://protofunc.com/scripts/jquery/mediaqueries/</a></p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79917#respond' onclick='return addComment.moveForm("comment-79917", "79917", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79918">
+
+      <div class="grid group comment-wrap" id="comment-79918">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a231273e547a3d46f121ec12d9f08101?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.jayphilips.com' rel='external nofollow' class='url'>Jay Philips</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79918"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T08:22:15+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Very cool technique, thank you for putting this together.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79918#respond' onclick='return addComment.moveForm("comment-79918", "79918", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-79919">
+
+      <div class="grid group comment-wrap" id="comment-79919">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bc582cf77c818dd92d1476d2794efa03?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Toni Kukurin</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79919"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T08:28:34+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Although I did know about this nifty trick for quite a while now, I must admit it never really occurred to me I could (should) use it.</p>
+<p>It&#8217;d probably be interesting to see grid layouts (Blueprint, for instance) using this technique. Imagine; 950px and above get the whole thing, everything below gets a smaller version.</p>
+<p>I&#8217;m absolutely putting it on my to-try list!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79919#respond' onclick='return addComment.moveForm("comment-79919", "79919", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79924">
+
+      <div class="grid group comment-wrap" id="comment-79924">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/627edc5e5cbf175c7dfcc4ec1ad38677?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://knowledgecity.com' rel='external nofollow' class='url'>Jae Xavier</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79924"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T10:32:16+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I like using icons; they say a lot in so little space.</p>
+<p>great write up. there are things i have not considered until now.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79924#respond' onclick='return addComment.moveForm("comment-79924", "79924", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1 buried" id="li-comment-79937">
+
+      <div class="grid group comment-wrap" id="comment-79937">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/65d2481af8a2b48d15bdcd15dd6a38fb?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.joska-potin.com' rel='external nofollow' class='url'>Joska</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79937"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T16:49:22+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great technique. Thanks Chris !</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79937#respond' onclick='return addComment.moveForm("comment-79937", "79937", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79952">
+
+      <div class="grid group comment-wrap" id="comment-79952">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/5ccb97991190898363d0a7ba9985d827?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.guliwer.sk' rel='external nofollow' class='url'>Jan</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79952"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T22:10:41+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice technique, but what about usage in the real world project, where only very few visitors can have a benefit of it? Maybe in 4-5 years?</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79952#respond' onclick='return addComment.moveForm("comment-79952", "79952", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-79954">
+
+      <div class="grid group comment-wrap" id="comment-79954">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/664e9bfc76df09b839e730bcfc72207e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ant</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79954"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-06T22:56:17+00:00">July 6, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p><a href="http://cg.tutsplus.com/" rel="nofollow">http://cg.tutsplus.com/</a> is the only site I’ve seen using that (with scripts though).</p>
+<p>I’d say it’s better than fluid layout, because more control of placing and resizing elements.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1 buried" id="li-comment-79970">
+
+      <div class="grid group comment-wrap" id="comment-79970">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/826df995df49dc87ddd04638255cd51c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.brewerjwebdesign.com' rel='external nofollow' class='url'>Jamie</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79970"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-07T09:07:56+00:00">July 7, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great Article! Thanks Chris:)</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79970#respond' onclick='return addComment.moveForm("comment-79970", "79970", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1 buried" id="li-comment-79972">
+
+      <div class="grid group comment-wrap" id="comment-79972">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/3fe87b91ebaabb5e449f12bd1cb93097?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ewald</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79972"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-07T09:27:27+00:00">July 7, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great Article! I love it, Chris!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79972#respond' onclick='return addComment.moveForm("comment-79972", "79972", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-79975">
+
+      <div class="grid group comment-wrap" id="comment-79975">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/efe21b22434580b1a0b149e75c79e473?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Miles</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79975"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-07T11:53:03+00:00">July 7, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>@ the panic example</p>
+<p>I haven&#8217;t followed Mozilla&#8217;s work all that closely and I don&#8217;t really know that much about the rendering engines in most email clients:</p>
+<p>I know that Thunderbird uses Gecko, but I don&#8217;t know what version or does anyone have any analytics on what versions are in the wild? Does Apple Mail use webkit?</p>
+<p>This would be very useful, but is there any resource on the web that talks about what email clients are capable of approaching the level of detail that we have for the major browser vendors?</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79975#respond' onclick='return addComment.moveForm("comment-79975", "79975", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-79977">
+
+      <div class="grid group comment-wrap" id="comment-79977">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bc582cf77c818dd92d1476d2794efa03?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Toni Kukurin</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79977"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-07T12:38:39+00:00">July 7, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Basically, they use the same browsing engine their counterparts (ehm&#8230; Web browsers) use. </p>
+<p>IE and Outlook = Trident,<br />
+Apple Mail = Webkit,<br />
+Thunderbird = Gecko.</p>
+<p>More info on <a href="http://www.thedotproduct.org/2010/06/email-client-rendering-engines-testing-layouts/" rel="nofollow">The Dot Product</a>. ;)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2" id="li-comment-80014">
+
+      <div class="grid group comment-wrap" id="comment-80014">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/753e617f5b634257fa3d14c293cd1bd4?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://creativelogiq.com' rel='external nofollow' class='url'>Jackson</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80014"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-08T17:38:36+00:00">July 8, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I hate to be a nag, but Outlook most certainly does NOT use IE/Trident for HTML rendering.  Outlook uses (wait for it&#8230;) Microsoft Word to render HTML in emails, which is the EXACT reason it renders HTML like it&#8217;s still 1996 or something!</p>
+<p>Cheers!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2" id="li-comment-80034">
+
+      <div class="grid group comment-wrap" id="comment-80034">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bc582cf77c818dd92d1476d2794efa03?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Toni Kukurin</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80034"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-09T04:22:04+00:00">July 9, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Yes, I forgot to include that it USED to have that engine. </p>
+<p>If you look at the site I&#8217;ve included (The Dot Product), even there it says they&#8217;re now using Word&#8217;s rendering engine. ;)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79978">
+
+      <div class="grid group comment-wrap" id="comment-79978">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/5c4f4e081b98517cf7c5b21f47d9fe33?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Alexander</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79978"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-07T12:46:53+00:00">July 7, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>There is a jQuery Plugin wich enables basic media queries support in IE/old browsers:<br />
+<a href="http://protofunc.com/scripts/jquery/mediaqueries/" rel="nofollow">http://protofunc.com/scripts/jquery/mediaqueries/</a></p>
+<p>You don&#8217;t need to write one extra line of JavaScript-Code or add some strange markup for this. The plugin simply parses the media attribute of your linked stylesheets and attaches the right styles sheets, dynamically.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79978#respond' onclick='return addComment.moveForm("comment-79978", "79978", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-79991">
+
+      <div class="grid group comment-wrap" id="comment-79991">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a530688732fe32140f3b8c549505937c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.stereohero.se' rel='external nofollow' class='url'>Pontus Ekman</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79991"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-07T22:00:43+00:00">July 7, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Those are some really neat tricks, that opens up quite a few possibilities for fluid designs.<br />
+I salute you!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79991#respond' onclick='return addComment.moveForm("comment-79991", "79991", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-79995">
+
+      <div class="grid group comment-wrap" id="comment-79995">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/89090a7424b1910bec314dbc28683113?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.developtus.com/' rel='external nofollow' class='url'>Developtus</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-79995"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-08T05:09:13+00:00">July 8, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>wonderful tut!!! very good work!!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=79995#respond' onclick='return addComment.moveForm("comment-79995", "79995", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-80006">
+
+      <div class="grid group comment-wrap" id="comment-80006">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bd7cddd58def83ea2a6883b572e9b477?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">bewa</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80006"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-08T15:06:02+00:00">July 8, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>id like amanda to marry me too :D</p>
+<p>nice tut! keep up the good work!!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80006#respond' onclick='return addComment.moveForm("comment-80006", "80006", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-80008">
+
+      <div class="grid group comment-wrap" id="comment-80008">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/fa4c87d042564388749845b29ae5a8d3?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">maria</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80008"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-08T15:57:38+00:00">July 8, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>!amazing post!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80008#respond' onclick='return addComment.moveForm("comment-80008", "80008", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-80009">
+
+      <div class="grid group comment-wrap" id="comment-80009">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/fa4c87d042564388749845b29ae5a8d3?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.bluekrawatte.at/cssexperience/' rel='external nofollow' class='url'>maria</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80009"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-08T15:58:36+00:00">July 8, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>thanks for sharing!!!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80009#respond' onclick='return addComment.moveForm("comment-80009", "80009", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-80015">
+
+      <div class="grid group comment-wrap" id="comment-80015">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/753e617f5b634257fa3d14c293cd1bd4?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://creativelogiq.com' rel='external nofollow' class='url'>Jackson</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80015"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-08T17:41:33+00:00">July 8, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Chris, </p>
+<p>Great article!  I&#8217;ve been thinking a lot about media queries lately, so it&#8217;s cool to see it all laid out here, clear and concise.  I&#8217;m also glad you mentioned the &#8220;CSS Content&#8221; ideas too.  Regarding the &#8220;CSS Content&#8221; feature, I think another cool (possibly more useful) idea would be to change the email icon to text if images are turned off.  Just my two cents.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80015#respond' onclick='return addComment.moveForm("comment-80015", "80015", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-80098">
+
+      <div class="grid group comment-wrap" id="comment-80098">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/6fc1fe1aebcbe3a04ad2d11b829f7470?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Marcus Tucker</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80098"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-12T03:34:44+00:00">July 12, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice article, my only criticism is that it doesn&#8217;t mention that media queries are new to CSS3 and are therefore only correctly interpreted by browsers which support CSS3, unless you use the JS shim others have already mentioned to expand support to older browsers.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80098#respond' onclick='return addComment.moveForm("comment-80098", "80098", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-80128">
+
+      <div class="grid group comment-wrap" id="comment-80128">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/e06725e71f93fa134c7ae54650fa5589?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">jean marc</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80128"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-13T00:04:23+00:00">July 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thx, gonna try an Iphone /Ipad web view&#8230;</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80128#respond' onclick='return addComment.moveForm("comment-80128", "80128", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-80142">
+
+      <div class="grid group comment-wrap" id="comment-80142">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/c83f9904cd8dcc58e4d86fad2fa4fd4c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://daniel-groves.co.uk' rel='external nofollow' class='url'>Daniel Groves</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80142"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-13T05:09:26+00:00">July 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>As per normal, tutorial is right on cue with where I am on my current project!  Nice timing!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80142#respond' onclick='return addComment.moveForm("comment-80142", "80142", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-80155">
+
+      <div class="grid group comment-wrap" id="comment-80155">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/cb56701b92a42b39ca89c1f3d31df74a?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.moossen.net/' rel='external nofollow' class='url'>Michael</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80155"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-13T12:09:46+00:00">July 13, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>very cool indeed and thank you for sharing for how much work did you spend in it? and for a single element! </p>
+<p>if you use this technique in a project that is more than a single page you most likely will have to do the same for many elements. </p>
+<p><em>it is really worth??</em></p>
+<p>the answer is, of course: <strong>Depends</strong></p>
+<p>if this will spare you the work to create a completely different version of your website for let&#8217;s say mobile devices, then definitively <strong>YES</strong>, if not, who cares?</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80155#respond' onclick='return addComment.moveForm("comment-80155", "80155", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1 buried" id="li-comment-80293">
+
+      <div class="grid group comment-wrap" id="comment-80293">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a32b827d05b7a79a6a01c57246008ace?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">asccigcc</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80293"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-17T20:54:14+00:00">July 17, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Man, this is awesome, i will try this, thnx.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80293#respond' onclick='return addComment.moveForm("comment-80293", "80293", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-80557">
+
+      <div class="grid group comment-wrap" id="comment-80557">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/b7e003194ca0b084517c50a8b07663a3?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://bka.co.nz' rel='external nofollow' class='url'>maak</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80557"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-21T00:16:24+00:00">July 21, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>This is awsome stuff. really it is. I&#8217;ve played with overlow properties to acheive similar results i interfaces&#8230;<br />
+&#8230;but to say this is well suported when no current IE supports this is um&#8230;well it&#8217;s maybe right if your site is for designers only.</p>
+<p>IE sadly having huge market share and looking like it will only slip gradually <a href="http://netmarketshare.com/browser-market-share.aspx?qprid=2" rel="nofollow">http://netmarketshare.com/browser-market-share.aspx?qprid=2</a></p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80557#respond' onclick='return addComment.moveForm("comment-80557", "80557", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-80561">
+
+      <div class="grid group comment-wrap" id="comment-80561">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/b13768d97dce604e4eb049e23f00d48c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.creativazen.com.ar/' rel='external nofollow' class='url'>creativazen</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-80561"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-07-21T04:45:01+00:00">July 21, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great post, thanks,very useful really.Thanks again.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=80561#respond' onclick='return addComment.moveForm("comment-80561", "80561", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-81231">
+
+      <div class="grid group comment-wrap" id="comment-81231">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/75369319e93ab36c62563e03c9c3f012?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.maurice-web.de' rel='external nofollow' class='url'>Florence</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-81231"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-08-04T12:27:27+00:00">August 4, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Just a note about the last part of the article &#8220;Elsewhere&#8221;:<br />
+Ethan Marcotte’s demo <strong>does use</strong> media-queries: in the final version of the layout:<br />
+<a href="http://www.alistapart.com/d/responsive-web-design/ex/ex-site-FINAL.html" rel="nofollow">http://www.alistapart.com/d/responsive-web-design/ex/ex-site-FINAL.html</a></p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=81231#respond' onclick='return addComment.moveForm("comment-81231", "81231", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-81700">
+
+      <div class="grid group comment-wrap" id="comment-81700">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/a02adda419c4ab3c28dae1660a8a20ef?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.igorsbrezinskis.com' rel='external nofollow' class='url'>Igors</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-81700"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2010-08-15T14:35:36+00:00">August 15, 2010</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thanks Chris for great post! When I read your posts, I feel I need carry on practice. =) I wish you all the best!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=81700#respond' onclick='return addComment.moveForm("comment-81700", "81700", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-600982">
+
+      <div class="grid group comment-wrap" id="comment-600982">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/cf5cbe1db3175ecdbe0910b9c4912711?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">nish</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-600982"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-10-20T04:51:56+00:00">October 20, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>hello thanks for the post its really helpful! but is <a href="http://www.opera.com" title="opera" rel="nofollow">http://www.opera.com</a> using the same concept?or using grids?</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=600982#respond' onclick='return addComment.moveForm("comment-600982", "600982", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-616867">
+
+      <div class="grid group comment-wrap" id="comment-616867">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/4da84e89654272731282ce75dc174a6e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://igor.jerosimic.net/' rel='external nofollow' class='url'>Igor Jerosimic</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-616867"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-10-28T23:53:37+00:00">October 28, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Is there a reason why you are using <code>@media all and (max-width:...)</code> when <code>all</code> is already implied?</p>
+<p>I noticed a few days ago that I have been using <code>all</code> in every <code>@media</code> rule and can&#8217;t figure out why I did that. It seems to be common practice for everyone, maybe someone know why?</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=616867#respond' onclick='return addComment.moveForm("comment-616867", "616867", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1 buried" id="li-comment-617068">
+
+      <div class="grid group comment-wrap" id="comment-617068">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/2dc85632f06cf6fadde0efd35711c5ff?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">BRIAN</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-617068"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-10-29T02:34:04+00:00">October 29, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>You just saved my life. You&#8217;re my hero man. GREAT ARTICLE!!!!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=617068#respond' onclick='return addComment.moveForm("comment-617068", "617068", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-637527">
+
+      <div class="grid group comment-wrap" id="comment-637527">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bc5e71a20be891e2633f2506942e488b?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kursus</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-637527"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-11-06T19:43:50+00:00">November 6, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hi, I wanna ask about css media print, what for?</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=637527#respond' onclick='return addComment.moveForm("comment-637527", "637527", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1 buried" id="li-comment-748617">
+
+      <div class="grid group comment-wrap" id="comment-748617">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/bc245d87b0272ba36784e2ff95a774fa?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Shahbaz Ahmed Bhatti</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-748617"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-12-02T03:40:03+00:00">December 2, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>He CSS-Tric i very like Chris, Chris is the Hero of CSS. Keep it up Thank u Sir</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=748617#respond' onclick='return addComment.moveForm("comment-748617", "748617", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-885657">
+
+      <div class="grid group comment-wrap" id="comment-885657">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/1a1f2dbd73b782bd3f04a6d903de3b6a?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://blog.roymj.co.in' rel='external nofollow' class='url'>Roy M J</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-885657"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2013-12-18T23:02:30+00:00">December 18, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hey Chris,</p>
+<p>I know this is a very old post, but i have to ask. You have mentioned we can target device-height also. So i can design according to the height of the device? Has it got any flaws ?. Ive used device-width to good effect, however i would like to know whether device-heigth is a good choice. I want to target the phones with small size espcially length-wise. Over my part of the world, such devices are common and im forced to vary my layout according to the height also. Looking forward to hearing back from you.</p>
+<p>Thanks<br />
+Roy M J</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=885657#respond' onclick='return addComment.moveForm("comment-885657", "885657", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1 buried" id="li-comment-1015076">
+
+      <div class="grid group comment-wrap" id="comment-1015076">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/c914155026e4774d851201606ffd054b?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ian</div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-1015076"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2014-01-01T11:29:41+00:00">January 1, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I am so glad I found this post. This has totally revolutionized my knowledge base. You rock.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=1015076#respond' onclick='return addComment.moveForm("comment-1015076", "1015076", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1 buried" id="li-comment-1183370">
+
+      <div class="grid group comment-wrap" id="comment-1183370">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://0.gravatar.com/avatar/6c6ae2867d08bddc98e47c5a3374a119?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://vvoce.it' rel='external nofollow' class='url'>More bonuses</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-1183370"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2014-02-21T23:10:36+00:00">February 21, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hello there! I simply wish to offer you a big thumbs up for the<br />
+excellent information you have got here on this post.</p>
+<p>I&#8217;ll be returning to your website for more soon.</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=1183370#respond' onclick='return addComment.moveForm("comment-1183370", "1183370", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-1410179">
+
+      <div class="grid group comment-wrap" id="comment-1410179">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='http://1.gravatar.com/avatar/de94bca69c5bfb728dde1af0f651e965?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href='http://www.roachdesign.com' rel='external nofollow' class='url'>Michael Roach</a></div> <div class="comment-time"><a href="http://css-tricks.com/css-media-queries/#comment-1410179"><span class="screen-reader">Permalink to comment</span>#</span></a> <time pubdate datetime="2014-03-21T16:48:11+00:00">March 21, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hey Chris,<br />
+I&#8217;ve used CSS-Tricks an unknown amount of times, and I recently watched the awesomely motivational talk you gave (the rolling rock infused writers block, work smart, sass, etc). I&#8217;ve been aware of responsive design, but I usually used a max-width property (I know I know). You explain media queries like a boss in this article, if you ever find yourself in the panhandle of West Virginia I believe I owe you several cases of rolling rock!</p>
+
+            <div class="reply">
+              <a class='comment-reply-link' href='/css-media-queries/?replytocom=1410179#respond' onclick='return addComment.moveForm("comment-1410179", "1410179", "respond", "6731")'>Reply &darr;</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+	</ol>
+
+
+
+	<div id="respond" class="respond group">
+
+		
+		<form action="http://css-tricks.com/wp-comments-post.php" method="post" id="comment-form" class="group comment-form">
+
+			<h2 class="comments-title">
+				Leave a Comment
+			</h2>
+
+			
+				<div class="grid nopadding group commenter-inputs">
+
+				  <div class="grid-1-3">
+						<label for="author" class="screen-reader">Name*</label>
+						<input placeholder="Name (required)" required type="text" name="author" id="author" value="" class="infoput">
+				  </div>
+
+				  <div class="grid-1-3">
+						<label for="email" class="screen-reader">Email</label>
+						<input placeholder="Email (required)" required type="email" name="email" id="email" value="" class="infoput">
+				  </div>
+
+				  <div class="grid-1-3">
+						<label for="url" class="screen-reader">Website</label>
+						<input placeholder="Website (optional)" type="url" name="url" id="url" value="" class="infoput">
+					</div>
+
+				</div>
+				
+				<div class="comment-wrap">
+					<label for="comment" class="screen-reader">Comment</label>
+					<textarea name="comment" id="comment" cols="100" rows="10" placeholder="Your comment here. Be cool."></textarea>
+				</div>
+
+				<input type='hidden' name='comment_post_ID' value='6731' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4ea49571cc" /></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p>
+				<div class="comment-form-button-wrap">
+					<input name="submit" type="submit" class="button" id="submit" value="Submit Comment">
+
+					<a rel="nofollow" id="cancel-comment-reply-link" href="/css-media-queries/#respond" style="display:none;">Cancel Reply</a>				</div>
+
+		</form>
+
+		
+	</div>
+
+</section>		
+	</section>
+
+	<aside class="grid-1-3">
+
+    <div class="module module-image-ad module-treehouse">
+
+    <a href="http://teamtreehouse.com/join/now?utm_source=css-tricks&utm_medium=sidebar&utm_campaign=css-tricks-april-2014&cid=1148">
+      <img src="http://cdn.css-tricks.com/images/treehouse-march2014.svg" alt="Treehouse">
+    </a>
+
+    <p>Learn HTML, CSS, and how to build iPhone apps at <a href="http://teamtreehouse.com/redirect/css-tricks/sidebar">Treehouse</a>. Their library of over 1,000 current training videos from expert teachers can get you up to date on the latest web technology.</p>
+
+  </div>
+  
+  <div class="module group module-lodge">
+    
+  
+    <p class="intro-lodge"><a href="/lodge/">The Lodge</a> is a <a href="/wp-login.php">member login</a> only area with access to video training on how to build websites from scratch using the best modern tools.</p>
+
+    <div class="lodge-actions">
+      <a href="/lodge/signup/" class="button">Sign up!</a>
+    </div>
+
+  
+  </div>
+
+    <div class="module module-image-ad">
+    <a id="wufoo-ad-graphic" class="wufoo-ad-graphic" href="http://ad.doubleclick.net/ddm/clk/270735259;104033101;o?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstricks600x600banner">
+    </a>
+    <p>
+      The forms that you build with <a href="http://ad.doubleclick.net/ddm/clk/270735316;104033101;i?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstrickstextlinkwufoo">Wufoo</a> can take payments through Stripe, PayPal, Authorize.net, and more. Perfect for taking money for an event, selling a T-Shirt, accepting donations, or anything else you need.
+
+      <a href="http://ad.doubleclick.net/ddm/clk/270735352;104033101;i?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstrickstextlinktryitfree">Try&nbsp;it&nbsp;free!</a><img src="http://ad.doubleclick.net/ad/N7439.1063086.CSS-TRICKS.COM/B7043538.104033101;sz=1x1;kw=[url_encoded_publisher_data];ord=2014-03-28T10:41:40+00:00?'); ?>?">
+    </p>
+  </div>
+  
+  <div class="module module-poll">
+    <div id="polls-48" class="wp-polls">
+	<form id="polls_form_48" class="wp-polls-form" action="/index.php" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_48_nonce" name="wp-polls-nonce" value="521016447d" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="48" /></p>
+		<h4>This best describes how I share links on my social media site(s) of choice:</h4>
+
+<div id="polls-48-ans" class="wp-polls-ans">
+
+<ul class="wp-polls-ul group">
+		<li class="group"><input type="radio" id="poll-answer-264" name="poll_48" value="264" /> <label for="poll-answer-264">I typically only share pages that have sharing buttons.</label></li>
+		<li class="group"><input type="radio" id="poll-answer-265" name="poll_48" value="265" /> <label for="poll-answer-265">I don't ever use sharing buttons. I share my own way.</label></li>
+		<li class="group"><input type="radio" id="poll-answer-266" name="poll_48" value="266" /> <label for="poll-answer-266">I can go either way.</label></li>
+		</ul>
+
+<p class="voting-buttons">
+
+<input type="button" name="vote" value="   Vote   " class="button" onclick="poll_vote(48);" onkeypress="poll_result(48);" /> &nbsp; <a href="#ViewPollResults" class="button" onclick="poll_result(48); return false;" onkeypress="poll_result(48); return false;" title="View Results Of This Poll">View Results</a>
+
+</p>
+
+</div>
+	</form>
+</div>
+  </div>
+  <div class="module module-subscribe group">
+
+    <h4><a href="/subscription-options/">Subscribe</a></h4>
+ 
+    <div class="group">
+    <a href="http://feeds.feedburner.com/CssTricks" class="square-link square-rss">
+      <svg viewBox="0 0 100 100" class="shape-rss">
+        <use xlink:href="#rss-1"></use>
+      </svg>
+      <svg viewBox="0 0 100 100" class="shape-rss">
+        <use xlink:href="#rss-2"></use>
+      </svg>
+      <svg viewBox="0 0 100 100" class="shape-rss">
+        <use xlink:href="#rss-3"></use>
+      </svg>
+      <span>RSS</span>
+    </a>
+
+    <a class="square-link square-itunes" href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=273881728">
+      <svg viewBox="0 0 100 100" class="shape-itunes">
+        <use xlink:href="#shape-itunes"></use>
+      </svg>
+      <span>iTunes</span>
+    </a>
+    </div>
+
+    <div id="mc_embed_signup" class="mailchimp-signup">
+
+    <h4>Posts by Email</h4>
+
+      <form action="http://chriscoyier.us2.list-manage2.com/subscribe/post?u=155f5a9ccc4e24c318130cace&amp;id=197f127a68" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="mc-field-group">
+          <label for="mce-EMAIL">Email Address</label>
+          <input type="email" value="" name="EMAIL" class="required email fullwidth" id="mce-EMAIL">
+        </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+          <div style="position: absolute; left: -5000px;"><input type="text" name="b_155f5a9ccc4e24c318130cace_197f127a68" value=""></div>
+        <div class="clear"><input type="submit" value="Subscribe" name="Subscribe" id="mc-embedded-subscribe" class="button"></div>
+      </form>
+    </div>
+
+  </div>
+
+</aside>
+</div>
+    </div>  
+    <footer class="site-footer social-footer group">
+
+      <h2 class="upcomer">Social</h2>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="http://twitter.com/chriscoyier" class="social-twitter">
+            <svg viewBox="0 0 100 100" class="shape-twitter">
+              <use xlink:href="#shape-twitter"></use>
+            </svg>
+            <span>Twitter <span>@chriscoyier</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://twitter.com/real_css_tricks" class="social-twitter">
+            <svg viewBox="0 0 100 100" class="shape-twitter">
+              <use xlink:href="#shape-twitter"></use>
+            </svg>
+            <span>Twitter <span>@real_css_tricks</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://pinboard.in/u:chriscoyier" class="social-pinboard">
+            <svg viewBox="0 0 100 100" class="shape-pinboard">
+              <use xlink:href="#shape-pinboard"></use>
+            </svg>
+            <span>Pinboard <span>chriscoyier</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://facebook.com/CSSTricks" class="social-facebook">
+            <svg viewBox="0 0 100 100" class="shape-facebook">
+              <use xlink:href="#shape-facebook"></use>
+            </svg>
+            <span>Facebook <span>CSSTricks</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://dribbble.com/chriscoyier" class="social-dribbble">
+            <svg viewBox="0 0 100 100" class="shape-dribble">
+              <use xlink:href="#shape-dribbble"></use>
+            </svg>
+            <span>Dribbble <span>chriscoyier</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://plus.google.com/101987072260327250694/posts" class="social-googleplus">
+            <svg viewBox="0 0 100 100" class="shape-googleplus">
+              <use xlink:href="#googleplus-1"></use>
+            </svg>
+            <svg viewBox="0 0 100 100" class="shape-googleplus">
+              <use xlink:href="#googleplus-2"></use>
+            </svg>
+            <svg viewBox="0 0 100 100" class="shape-googleplus">
+              <use xlink:href="#googleplus-3"></use>
+            </svg>
+            <span>Google+ <span>ChrisCoyier</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.youtube.com/realcsstricks" class="social-youtube">
+            <svg viewBox="0 0 100 100" class="shape-youtube">
+              <use xlink:href="#shape-youtube"></use>
+            </svg>
+            <span>YouTube <span>realcsstricks</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="http://codepen.io/chriscoyier" class="social-codepen">
+            <svg viewBox="0 0 100 100" class="shape-codepen">
+              <use xlink:href="#codepen-1"></use>
+            </svg>
+            <svg viewBox="0 0 100 100" class="shape-codepen">
+              <use xlink:href="#codepen-2"></use>
+            </svg>
+            <span>CodePen <span>chriscoyier</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/chriscoyier/" class="social-github">
+            <svg viewBox="0 0 100 100" class="shape-github">
+              <use xlink:href="#shape-github"></use>
+            </svg>
+            <span>GitHub <span>chriscoyier</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/CSS-Tricks/" class="social-github">
+            <svg viewBox="0 0 100 100" class="shape-github">
+              <use xlink:href="#shape-github"></use>
+            </svg>
+            <span>GitHub <span>CSS-Tricks Org</span></span>
+          </a>
+        </li>
+      </ul>
+
+    </footer>
+
+    <footer class="site-footer promo-footer group">
+
+      <h2 class="upcomer">Projects</h2>
+
+      <div class="promo-footer-part footer-codepen group">
+        <a href="http://codepen.io/hello/" class="promo-footer-logo">
+          <svg viewBox="0 0 100 100" class="shape-codepen">
+            <use xlink:href="#codepen-1"></use>
+          </svg>
+          <svg viewBox="0 0 100 100" class="shape-codepen">
+            <use xlink:href="#codepen-2"></use>
+          </svg>
+        </a>
+        <p>
+          <a href="http://codepen.io">
+            CodePen
+          </a>
+          is a social code playground for web designers and developers. Build demos, find inspiration, or troubleshoot code. With <a href="http://codepen.io/pro/">CodePen PRO</a> you can teach students, pair program, host files, and more!
+        </p>
+      </div>
+
+      <div class="promo-footer-part footer-shoptalk group">
+        <a href="http://shoptalkshow.com" class="promo-footer-logo">
+          <img src="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/images/shoptalk.svg" alt="ShopTalk Logo">
+        </a>
+        <p>
+          <a href="http://shoptalkshow.com">
+            ShopTalk
+          </a>
+           is a podcast about all things web design and development hosted by Dave Rupert and me. The show is recorded live and covers the week in #hotdrama and listener Q&amp;A.
+         </p>
+      </div>
+
+    </footer>
+
+    <footer class="site-footer footer-links">
+
+      <h2 class="upcomer">Linkage</h2>
+
+      <p>
+        <a href="/contact/">Contact</a>
+        <a href="/advertising/">Advertise</a>
+        <a href="/license/">License</a>
+        <a href="http://css-tricks-store.myshopify.com/">Store</a>
+      </p>
+    </footer>
+
+    <footer class="site-footer footer-slogan">
+
+      <h2 class="upcomer">Colophon</h2>
+
+      <p>CSS-Tricks* is created, written by, and maintained by <a href="http://chriscoyier.net">Chris Coyier</a>. It is built on <a href="http://wordpress.org/">WordPress</a>, hosted by <a href="http://www.mediatemple.net/#a_aid=4e25c84480ed2">Media Temple</a> and <a href="http://tracking.maxcdn.com/c/13088/93731/378">MaxCDN</a>. Fonts are Gotham Rounded, Noto Sans, and Menlo.</p>
+      
+    </footer>
+
+    <p class="mega-big-time-warning"><small>*May or may not contain any actual "CSS" or "Tricks".</small></p>
+
+  </div>
+  <svg class="hide">
+
+  <defs>
+
+    <path id="shape-tab" d="M100,25C79.568,25,84.815,0,59.692,0H11.149C5.027,0,0,4.634,0,10.385V25"/>
+
+    <path id="shape-tab-right" d="M0,25C20.432,25,15.185,0,40.308,0h48.543C94.973,0,100,4.634,100,10.385V25"/>
+
+    <path id="shape-search" d="M3.327,96.684C5.534,98.895,8.434,100,11.331,100s5.797-1.105,8.004-3.316l21.321-21.322
+    c5.83,3.188,12.393,4.897,19.223,4.897c10.721,0,20.798-4.172,28.379-11.752c15.646-15.644,15.646-41.105,0.002-56.755
+    C80.677,4.171,70.598,0,59.877,0C49.159,0,39.08,4.171,31.504,11.752c-7.581,7.576-11.756,17.655-11.756,28.376
+    c0,6.832,1.71,13.396,4.9,19.226L3.327,80.675C-1.096,85.094-1.096,92.266,3.327,96.684z M59.879,68.938
+    c-7.695,0-14.93-2.996-20.371-8.435c-5.443-5.442-8.439-12.677-8.439-20.375c0-7.695,2.996-14.933,8.439-20.372
+    c5.441-5.44,12.676-8.436,20.369-8.436c7.698,0,14.936,2.997,20.378,8.436c11.231,11.236,11.231,29.515,0,40.747
+    C74.812,65.941,67.575,68.938,59.879,68.938z"/>
+
+    <g id="shape-rss">
+      <path id="rss-1" d="M7.336,62.163c-0.388-0.075-0.783-0.112-1.171-0.112c-1.42,0-2.81,0.491-3.923,1.409C0.822,64.632,0,66.375,0,68.216
+    v25.617C0,97.238,2.76,100,6.166,100h25.616c1.84,0,3.586-0.822,4.757-2.243c1.17-1.421,1.646-3.287,1.297-5.098
+    C34.876,77.378,22.62,65.12,7.336,62.163z"/>
+      <path id="rss-2" d="M6.764,30.957c-0.199-0.02-0.399-0.029-0.597-0.029c-1.525,0-3.005,0.563-4.142,1.6C0.733,33.699,0,35.357,0,37.096v3.098
+        c0,3.164,2.394,5.812,5.536,6.136C30.838,48.92,51.08,69.161,53.672,94.462c0.322,3.146,2.973,5.539,6.135,5.539h3.098
+        c1.74,0,3.398-0.732,4.566-2.023c1.168-1.286,1.738-3.009,1.571-4.74C65.841,60.349,39.65,34.158,6.764,30.957z"/>
+      <path id="rss-3" d="M99.986,93.431C96.732,43.428,56.568,3.268,6.565,0.012C6.432,0.005,6.298,0,6.166,0C4.604,0,3.095,0.593,1.95,1.667
+        C0.705,2.832,0,4.461,0,6.167v3.088c0,3.247,2.515,5.938,5.752,6.155c42.113,2.832,76.006,36.726,78.839,78.84
+    c0.22,3.235,2.907,5.75,6.151,5.75h3.091c1.706,0,3.335-0.706,4.5-1.95C99.498,96.805,100.098,95.135,99.986,93.431z"/>
+    </g>
+
+    <path id="shape-itunes" d="M34.654,21.67v51.301c-3.423-1.393-7.51-1.871-11.754-1.022c-9.634,1.928-16.208,9.67-14.68,17.297
+  c1.523,7.625,10.569,12.248,20.207,10.315c8.682-1.733,14.819-8.198,14.837-15.049h0.059V40.005l39.008-14.997v33.717
+  c-3.424-1.391-7.51-1.871-11.753-1.021c-9.634,1.928-16.207,9.67-14.68,17.297c1.522,7.627,10.57,12.248,20.206,10.318
+  c8.147-1.632,14.055-7.437,14.764-13.808H91V0L34.654,21.67z"/>
+
+    <path id="shape-email" d="M44.933,98.093C19.882,92.443,3.579,72.894,6.295,42.843C8.963,13.331,32.181-0.745,54.983,0.03
+  c18.222,0.615,37.405,13.801,38.936,38.896c0.718,11.746-3.373,22.681-9.981,29.42c-8.577,8.746-19.542,10.468-28.546,9.201
+  C41.647,75.631,27.999,66.319,28.748,46.28c0.265-7.127,3.676-14.744,9.178-19.788c3.56-3.269,9.475-5.933,15.366-5.743
+  c6.368,0.208,11.371,3.154,14.656,7.464c5.83,7.661,5.674,19.918,5.456,21.124c0,0-0.04,0.302-0.095,0.712
+  c-0.147,0.997-0.982,1.743-1.95,1.735l-30.047-0.182c-0.141-0.004-0.28,0.066-0.375,0.186c-0.094,0.118-0.142,0.273-0.116,0.413
+  c2.068,11.762,13.149,13.718,15.739,14.062c3.146,0.427,11.645,1.258,18.699-5.78c4.832-4.81,7.071-9.829,7.429-21.025
+  c0.353-10.708-8.132-28.569-31.131-28.653c-12.009-0.044-31.643,10.088-33.57,33.223C16.083,66.766,28.553,84.02,48.54,87.51
+  c27.377,4.776,38.256-7.408,38.256-7.408c0.507-0.308,1.099-0.148,1.333,0.354l4.324,8.51c0.108,0.229,0.194,0.541,0.108,0.824
+  c-0.093,0.273-0.172,0.361-0.468,0.604C92.101,90.392,76.226,105.138,44.933,98.093z M42.286,39.479
+  c-0.085,0.199-0.124,0.412-0.046,0.593c0.079,0.177,0.25,0.29,0.438,0.29l19.159,0.143c0.147,0.004,0.297-0.066,0.405-0.193
+  c0.102-0.129,0.146-0.291,0.125-0.442c-0.296-1.804-0.866-3.609-1.965-5.027c-1.515-1.965-4.542-3.288-7.953-3.187
+  c-3.004,0.09-5.087,1.144-7.031,2.97C43.801,36.147,42.614,38.669,42.286,39.479z"/>
+
+    <path id="shape-scissors" d="M88.781,68.58c-4.819-6.068-13.189-8.268-20.355-6.131l-7.984-10.054L86.98,13.793c2.142-3.177,1.713-7.589-0.952-9.786
+    C83.359,1.808,81.184,0,81.184,0L50.001,39.257L18.818,0c0,0-2.176,1.808-4.842,4.007c-2.665,2.197-3.095,6.609-0.954,9.786
+    l26.541,38.603l-7.987,10.054c-7.174-2.137-15.536,0.062-20.354,6.131c-3.182,3.998-4.641,9.024-4.117,14.147
+    c0.531,5.122,2.991,9.732,6.912,12.973c3.359,2.772,7.586,4.3,11.898,4.3c5.738,0,11.095-2.602,14.71-7.148
+    c3.176-4.006,4.642-9.027,4.111-14.148c-0.074-0.719-0.271-1.396-0.418-2.089l5.684-8.635l5.681,8.635
+    c-0.146,0.692-0.342,1.37-0.414,2.089c-0.532,5.121,0.937,10.143,4.11,14.148C62.991,97.398,68.352,100,74.086,100
+    c4.315,0,8.54-1.527,11.892-4.3c3.932-3.24,6.389-7.85,6.918-12.974C93.42,77.604,91.964,72.577,88.781,68.58z M32.61,86.229
+    c-2.896,3.634-8.506,4.266-12.097,1.292c-1.788-1.466-2.901-3.562-3.145-5.888c-0.242-2.328,0.423-4.617,1.875-6.439
+    c1.638-2.067,4.076-3.246,6.684-3.246c1.987,0,3.856,0.672,5.406,1.959c1.789,1.467,2.905,3.562,3.145,5.889
+    C34.712,82.125,34.046,84.411,32.61,86.229z M49.994,57.923c-2.849,0-5.159-2.355-5.159-5.258c0-2.905,2.31-5.261,5.159-5.261
+    c2.847,0,5.16,2.356,5.16,5.261C55.153,55.567,52.841,57.923,49.994,57.923z M79.488,87.521c-3.587,2.973-9.204,2.342-12.09-1.286
+    c-1.443-1.823-2.107-4.109-1.876-6.438c0.243-2.325,1.357-4.421,3.151-5.895c1.544-1.281,3.412-1.951,5.401-1.951
+    c2.603,0,5.045,1.177,6.685,3.251c1.449,1.815,2.114,4.103,1.87,6.431C82.391,83.961,81.276,86.056,79.488,87.521z"/>
+
+    <path id="shape-dribbble" d="M52.988,50.438c0.556-0.181,1.116-0.347,1.68-0.508c-1.069-2.426-2.237-4.854-3.46-7.248
+  C29.881,49.066,9.185,48.8,7.314,48.76c-0.012,0.436-0.022,0.871-0.022,1.308c0,10.969,4.161,20.981,10.981,28.555
+  C19.242,76.965,30.96,57.558,52.988,50.438z M47.677,36.116c-7.075-12.579-14.706-23.154-15.833-24.7
+  c-11.948,5.636-20.88,16.651-23.65,29.902C10.105,41.345,27.701,41.421,47.677,36.116z M78.312,18.12
+  c-7.543-6.691-17.457-10.763-28.31-10.763c-3.443,0-6.797,0.415-10.006,1.19c1.179,1.58,8.935,12.142,15.933,25.001
+  C71.116,27.856,77.543,19.214,78.312,18.12z M62.044,46.084c0.314,0.736,0.622,1.472,0.921,2.201
+  c14.209-1.785,28.327,1.08,29.737,1.375c-0.094-10.081-3.696-19.337-9.646-26.603c-0.899,1.218-8.055,10.396-23.846,16.84
+  C60.206,41.931,61.158,44,62.044,46.084z M57.291,57.087c-24.087,8.396-32.735,25.099-33.504,26.672
+  c7.243,5.645,16.342,9.014,26.215,9.014c5.916,0,11.556-1.21,16.681-3.394c-0.635-3.747-3.115-16.807-9.107-32.388
+  C57.479,57.024,57.387,57.054,57.291,57.087z M50.002,100C22.43,100,0,77.569,0,50.001C0,22.432,22.43,0,50.002,0
+  C77.573,0,100,22.432,100,50.001C100,77.569,77.573,100,50.002,100z M65.564,55.02c5.587,15.349,7.862,27.852,8.3,30.448
+  c9.578-6.479,16.402-16.741,18.306-28.624C90.707,56.384,78.952,52.877,65.564,55.02z"/>
+
+    <path id="shape-facebook" d="M94.48,0H5.519C2.471,0,0,2.471,0,5.52v88.96c0,3.049,2.47,5.521,5.519,5.521h63.479L53.411,100V61.273h-13.03V46.181
+      h13.03v-11.13c0-12.916,7.89-19.949,19.412-19.949c5.52,0,10.263,0.41,11.645,0.595v13.497l-7.991,0.004
+      c-6.265,0-7.479,2.979-7.479,7.348v9.636h14.945l-1.947,15.093H68.998v38.726H94.48c3.047,0,5.52-2.472,5.52-5.521V5.52
+      C100,2.471,97.529,0,94.48,0z"/>
+
+    <path id="shape-github" d="M50.049,0.3c14.18,0.332,25.969,5.307,35.366,14.923S99.675,36.9,100,51.409c-0.195,11.445-3.415,21.494-9.658,30.146
+    c-6.244,8.65-14.406,14.772-24.488,18.366c-1.234,0.199-2.112,0.017-2.633-0.549c-0.521-0.565-0.781-1.215-0.781-1.946
+    l0.098-14.074c0-2.396-0.342-4.377-1.023-5.939c-0.684-1.564-1.479-2.745-2.391-3.544c5.788-0.399,10.977-2.312,15.561-5.739
+    c4.586-3.428,7.01-9.934,7.27-19.517c0-2.795-0.455-5.324-1.366-7.586c-0.91-2.263-2.179-4.293-3.805-6.09
+    c0.391-0.665,0.716-2.196,0.976-4.592c0.262-2.396-0.229-5.391-1.463-8.983c0-0.2-1.105-0.15-3.316,0.149
+    c-2.211,0.299-5.691,2.013-10.439,5.141c-4.032-1.131-8.18-1.697-12.438-1.697c-4.26,0-8.439,0.566-12.537,1.697
+    c-4.748-3.128-8.228-4.841-10.439-5.141c-2.211-0.3-3.317-0.35-3.317-0.149c-1.235,3.593-1.723,6.588-1.463,8.983
+    c0.26,2.396,0.585,3.927,0.976,4.592c-1.626,1.73-2.894,3.743-3.805,6.039c-0.911,2.296-1.366,4.842-1.366,7.637
+    c0.26,9.518,2.667,16.006,7.219,19.466c4.553,3.461,9.724,5.391,15.512,5.79c-0.715,0.599-1.366,1.464-1.951,2.596
+    s-1.008,2.528-1.268,4.192c-1.561,0.865-3.772,1.281-6.634,1.248c-2.862-0.033-5.496-1.881-7.902-5.54
+    c0-0.2-0.65-1.032-1.951-2.496c-1.301-1.464-3.187-2.396-5.659-2.795c-0.325-0.066-0.976,0.05-1.951,0.35
+    c-0.976,0.3-0.456,1.214,1.561,2.745c0.065-0.066,0.699,0.449,1.902,1.547c1.203,1.1,2.423,3.078,3.659,5.939
+    c-0.195,0.466,0.862,1.863,3.17,4.191c2.309,2.329,6.846,2.93,13.61,1.797l0.098,9.483c0,0.731-0.26,1.381-0.781,1.946
+    c-0.52,0.564-1.398,0.748-2.634,0.549c-10.082-3.594-18.244-9.716-24.488-18.367C3.415,72.604,0.195,62.556,0,51.11
+    C0.325,36.602,5.187,24.54,14.585,14.923C23.984,5.308,35.772,0.333,49.951,0L50.049,0.3z"/>
+
+    <g id="shape-googleplus">
+      <path id="googleplus-1" d="M44.438,59.102c-0.699-0.091-1.137-0.091-2.012-0.091c-0.789,0-5.518,0.177-9.193,1.441
+        c-1.927,0.714-7.527,2.868-7.527,9.237c0,6.375,6.041,10.957,15.408,10.957c8.406,0,12.873-4.139,12.873-9.694
+        C53.984,66.364,51.096,63.945,44.438,59.102z"/>
+      <path id="googleplus-2" d="M49.167,35.495c0-6.463-3.768-16.514-11.029-16.514c-2.283,0-4.729,1.168-6.133,2.965c-1.49,1.887-1.923,4.301-1.923,6.643
+        c0,6.01,3.412,15.971,10.944,15.971c2.188,0,4.543-1.07,5.953-2.509C48.991,39.979,49.167,37.112,49.167,35.495z"/>
+      <path id="googleplus-3" d="M96.879,0H3.121C1.396,0,0,1.428,0,3.19v93.615c0,1.766,1.396,3.193,3.121,3.193h93.758c1.727,0,3.121-1.43,3.121-3.193
+        V3.19C100,1.428,98.604,0,96.879,0z M36.819,84.409c-12.697,0-18.821-6.188-18.821-12.836c0-3.229,1.572-7.804,6.739-10.945
+        c5.425-3.41,12.784-3.856,16.726-4.135c-1.231-1.614-2.628-3.318-2.628-6.1c0-1.523,0.438-2.422,0.872-3.5
+        c-0.966,0.092-1.923,0.18-2.8,0.18c-9.277,0-14.53-7.095-14.53-14.094c0-4.123,1.836-8.703,5.6-12.025
+        c4.994-4.217,11.815-5.361,16.549-5.361h17.25l-5.692,3.659h-5.426c2.013,1.702,6.211,5.293,6.211,12.116
+        c0,6.638-3.675,9.787-7.348,12.746c-1.141,1.164-2.455,2.42-2.455,4.398c0,1.969,1.314,3.044,2.275,3.859l3.155,2.507
+        c3.853,3.319,7.354,6.371,7.353,12.569C59.848,75.887,51.877,84.409,36.819,84.409z M83.404,48.903h-8.801v9.027H70.27v-9.027
+        h-8.758v-4.48h8.758v-8.975h4.334v8.975h8.801V48.903z"/>
+    </g>
+
+    <path id="shape-pinboard" d="M51.447,59.185c0,0-12.542,12.915-18.583,17.828c-3.561-7.274,2.275-18.725,2.275-18.725l-23.604-30.95
+  c0,0-7.694,3.517-11.535,2.013C9.471,19.252,19.254,9.47,29.352,0c1.434,3.759-2.012,11.283-2.012,11.283l30.701,23.854
+  c0,0,11.578-5.927,18.977-2.275c-4.955,5.917-17.83,18.33-17.83,18.33s27.875,31.664,40.66,48.649c0.353,0.301,0.021,0.098-0.252,0
+  C83.035,86.802,51.447,59.185,51.447,59.185z"/>
+
+    <path id="shape-twitter" d="M100.001,17.942c-3.681,1.688-7.633,2.826-11.783,3.339
+  c4.236-2.624,7.49-6.779,9.021-11.73c-3.965,2.432-8.354,4.193-13.026,5.146C80.47,10.575,75.138,8,69.234,8
+  c-11.33,0-20.518,9.494-20.518,21.205c0,1.662,0.183,3.281,0.533,4.833c-17.052-0.884-32.168-9.326-42.288-22.155
+  c-1.767,3.133-2.778,6.773-2.778,10.659c0,7.357,3.622,13.849,9.127,17.65c-3.363-0.109-6.525-1.064-9.293-2.651
+  c-0.002,0.089-0.002,0.178-0.002,0.268c0,10.272,7.072,18.845,16.458,20.793c-1.721,0.484-3.534,0.744-5.405,0.744
+  c-1.322,0-2.606-0.134-3.859-0.379c2.609,8.424,10.187,14.555,19.166,14.726c-7.021,5.688-15.867,9.077-25.48,9.077
+  c-1.656,0-3.289-0.102-4.895-0.297C9.08,88.491,19.865,92,31.449,92c37.737,0,58.374-32.312,58.374-60.336
+  c0-0.92-0.02-1.834-0.059-2.743C93.771,25.929,97.251,22.195,100.001,17.942L100.001,17.942z"/>
+
+    <path id="shape-youtube" d="M98.77,27.492c-1.225-5.064-5.576-8.799-10.811-9.354C75.561,16.818,63.01,15.993,50.514,16
+    c-12.495-0.007-25.045,0.816-37.446,2.139c-5.235,0.557-9.583,4.289-10.806,9.354C0.522,34.704,0.5,42.574,0.5,50.001
+    c0,7.426,0,15.296,1.741,22.509c1.224,5.061,5.572,8.799,10.807,9.352c12.399,1.32,24.949,2.145,37.446,2.14
+    c12.494,0.005,25.047-0.817,37.443-2.14c5.234-0.555,9.586-4.291,10.81-9.352c1.741-7.213,1.753-15.083,1.753-22.509
+    S100.51,34.704,98.77,27.492 M67.549,52.203L43.977,64.391c-2.344,1.213-4.262,0.119-4.262-2.428V38.036
+    c0-2.548,1.917-3.644,4.262-2.429l23.572,12.188C69.896,49.008,69.896,50.992,67.549,52.203"/>
+
+    <g id="shape-codepen">
+      <path id="codepen-1" d="M50,0C22.385,0,0,22.385,0,50c0,27.615,22.385,50,50,50c27.614,0,50-22.385,50-50C100,22.385,77.615,0,50,0z M50,91.789
+        C26.958,91.789,8.212,73.042,8.212,50C8.212,26.958,26.958,8.212,50,8.212c23.042,0,41.788,18.747,41.788,41.789
+        C91.788,73.042,73.042,91.789,50,91.789z"/>
+      <path id="codepen-2" d="M80.893,40.234c-0.006-0.039-0.016-0.076-0.022-0.115c-0.013-0.075-0.027-0.15-0.046-0.223
+        c-0.012-0.044-0.028-0.086-0.042-0.128c-0.021-0.065-0.042-0.13-0.068-0.193c-0.018-0.044-0.039-0.088-0.059-0.13
+        c-0.028-0.06-0.057-0.119-0.09-0.175c-0.024-0.042-0.051-0.083-0.076-0.124c-0.036-0.055-0.073-0.109-0.112-0.161
+        c-0.029-0.039-0.06-0.078-0.091-0.115c-0.042-0.049-0.086-0.098-0.132-0.143c-0.035-0.036-0.069-0.072-0.106-0.104
+        c-0.049-0.044-0.099-0.086-0.15-0.127c-0.04-0.031-0.079-0.062-0.12-0.091c-0.016-0.01-0.029-0.023-0.044-0.033L51.474,19.531
+        c-0.893-0.595-2.055-0.595-2.947,0L20.267,38.371c-0.015,0.01-0.028,0.023-0.044,0.033c-0.042,0.029-0.081,0.06-0.12,0.091
+        c-0.052,0.041-0.102,0.083-0.15,0.127c-0.037,0.032-0.071,0.068-0.106,0.104c-0.046,0.045-0.09,0.094-0.132,0.143
+        c-0.031,0.038-0.062,0.077-0.092,0.115c-0.039,0.052-0.076,0.106-0.111,0.161c-0.027,0.041-0.052,0.082-0.076,0.124
+        c-0.033,0.057-0.062,0.115-0.09,0.175c-0.021,0.042-0.042,0.086-0.06,0.13c-0.026,0.063-0.047,0.128-0.068,0.193
+        c-0.014,0.042-0.029,0.084-0.042,0.128c-0.02,0.073-0.032,0.148-0.046,0.223c-0.006,0.039-0.016,0.076-0.021,0.115
+        c-0.016,0.114-0.024,0.229-0.024,0.346V59.42c0,0.117,0.009,0.233,0.024,0.348c0.005,0.038,0.015,0.077,0.021,0.114
+        c0.014,0.075,0.027,0.149,0.046,0.223c0.012,0.043,0.028,0.086,0.042,0.128c0.021,0.065,0.042,0.13,0.068,0.195
+        c0.018,0.044,0.039,0.086,0.06,0.129c0.028,0.06,0.058,0.118,0.09,0.177c0.024,0.041,0.049,0.082,0.076,0.122
+        c0.035,0.056,0.072,0.109,0.111,0.161c0.029,0.041,0.061,0.078,0.092,0.115c0.042,0.049,0.086,0.098,0.132,0.144
+        c0.035,0.036,0.069,0.071,0.106,0.104c0.048,0.044,0.099,0.086,0.15,0.127c0.039,0.031,0.078,0.062,0.12,0.091
+        c0.016,0.01,0.029,0.023,0.044,0.032l28.259,18.84c0.446,0.297,0.96,0.447,1.474,0.447c0.513,0,1.027-0.149,1.473-0.447
+        l28.259-18.84c0.015-0.009,0.028-0.022,0.044-0.032c0.042-0.029,0.081-0.06,0.12-0.091c0.051-0.041,0.102-0.083,0.15-0.127
+        c0.037-0.033,0.071-0.068,0.106-0.104c0.046-0.046,0.09-0.095,0.132-0.144c0.031-0.037,0.062-0.075,0.091-0.115
+        c0.04-0.052,0.076-0.105,0.112-0.161c0.025-0.041,0.051-0.081,0.076-0.122c0.033-0.059,0.062-0.117,0.09-0.177
+        c0.02-0.042,0.041-0.085,0.059-0.129c0.026-0.065,0.047-0.13,0.068-0.195c0.014-0.042,0.03-0.085,0.042-0.128
+        c0.02-0.074,0.033-0.148,0.046-0.223c0.006-0.037,0.016-0.076,0.022-0.114c0.014-0.115,0.023-0.231,0.023-0.348V40.581
+        C80.916,40.464,80.907,40.348,80.893,40.234z M52.657,26.707l20.817,13.877l-9.298,6.221l-11.519-7.706V26.707z M47.343,26.707
+        v12.393l-11.518,7.706l-9.299-6.221L47.343,26.707z M24.398,45.554L31.046,50l-6.648,4.446V45.554z M47.343,73.294L26.525,59.417
+        l9.299-6.219l11.518,7.704V73.294z M50,56.286L40.603,50L50,43.715L59.397,50L50,56.286z M52.657,73.294V60.902l11.519-7.704
+        l9.298,6.219L52.657,73.294z M75.602,54.447L68.955,50l6.647-4.446V54.447z"/>
+    </g>
+
+    <path id="shape-arrow-right" d="M0,49.993c0,7.387,6.007,13.394,13.396,13.394h40.691L42.898,74.407c-2.543,2.507-3.94,5.827-3.94,9.36
+    c0,3.539,1.407,6.863,3.952,9.364C45.428,95.616,48.809,97,52.402,97c3.6,0,6.978-1.384,9.516-3.891l34.159-33.623
+    c2.53-2.489,3.923-5.81,3.923-9.342v-0.307c0-3.545-1.4-6.867-3.943-9.358L61.914,6.869c-5.243-5.16-13.775-5.16-19.014,0
+    c-2.539,2.495-3.942,5.821-3.942,9.354c0,3.535,1.403,6.862,3.942,9.354L54.1,36.604H13.396C6.012,36.604,0.001,42.61,0,49.993z"/>
+
+  </defs>
+
+</svg>
+
+	<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/css-tricks.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"0","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://cdn.css-tricks.com/wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201413'></script>
+
+  <script>
+    var __templatePath = "http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11";
+  </script>
+
+  <script src='http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-11/js/global-ck.js?v=1.0'></script>
+  <script async src="//codepen.io/assets/embed/ei.js"></script>
+
+  
+  <script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-68528-29']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script>
+
+<script>
+/* <![CDATA[ */
+var google_conversion_id = 1017883234;
+var google_conversion_label = "BsxVCM7ImAMQ4tSu5QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1017883234/?value=0&amp;label=BsxVCM7ImAMQ4tSu5QM&amp;guid=ON&amp;script=0">
+</div>
+</noscript>
+
+</body>
+
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using memcached
+Object Caching 5635/5849 objects using memcached
+Fragment Caching 0/0 fragments using memcached
+Content Delivery Network via cdn.css-tricks.com
+
+ Served from: css-tricks.com @ 2014-03-28 03:41:40 by W3 Total Cache -->

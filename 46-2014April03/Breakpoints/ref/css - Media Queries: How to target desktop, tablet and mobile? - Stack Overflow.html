@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>css - Media Queries: How to target desktop, tablet and mobile? - Stack Overflow</title>
+    <link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=5bcec08ba0c5">
+    <link rel="apple-touch-icon image_src" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=fd7230a85918">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com"/>
+    <meta name="og:type" content="website" />
+    <meta name="og:image" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=fde65a5a78c6"/>
+    <meta name="og:title" content="Media Queries: How to target desktop, tablet and mobile?" />
+    <meta name="og:description" content="I have been doing some research on media queries and I still don&#39;t quite understand how to target devices of certain sizes. 
+
+I want to be able to target desktop, tablet and mobile. I know that there " />
+    <meta name="og:url" content="http://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile"/>
+    <link rel="canonical" href="http://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile" />
+
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="//cdn.sstatic.net/Js/stub.en.js?v=a18d58f7dfd8"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.sstatic.net/stackoverflow/all.css?v=884f021ebd40">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Media Queries: How to target desktop, tablet and mobile?&#39;" href="/feeds/question/6370690">
+    <script>
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({votesCast:[],autoShowCommentHelp:true,showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:6370690});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '6370690');
+            
+                    });
+    </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1396005527,"networkMetaHostname":"meta.stackoverflow.com","styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"9a35720df48402320f14e82d1b669316","isRegistered":true,"userType":3,"userId":2843406,"accountId":3387803,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"http://graph.facebook.com/560286362/picture?type=large\" alt=\"\"></div>","profileUrl":"http://stackoverflow.com/users/2843406/lui-cruz","notificationsUnviewedCount":0,"inboxUnviewedCount":0,"ab":{"welcome_email":{"v":"2","g":2}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"af5cb243a39f","js/moderator.en.js":"6a1016c71c09","js/full-anon.en.js":"c882256a54e8","js/full.en.js":"85fad34758ff","js/wmd.en.js":"d0e3cb84914e","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"8db7c5fe0f34","js/help.en.js":"6e07ced519d9","js/tageditor.en.js":"0b8e6011abf6","js/tageditornew.en.js":"9d14702beb3b","js/inline-tag-editing.en.js":"6f62ae96ce6c","js/revisions.en.js":"53c78be3270d","js/review.en.js":"5a7413f4542b","js/tagsuggestions.en.js":"38fb43e0d5f9","js/post-validation.en.js":"cbeed55c1678","js/explore-qlist.en.js":"809322d8981b","js/events.en.js":"e92c25908ad3"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+        
+    </script>
+    
+</head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+<div class="topbar">
+    <div class="topbar-wrapper">
+        
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="//stackoverflow.com">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+                    <a href="http://blog.stackexchange.com"     data-gps-track="site_switcher.click({ item_type:7 })"
+>blog</a>
+                    <a href="/users/logout"     data-gps-track="site_switcher.click({ item_type:8 })"
+>log out</a>
+    </div>
+
+
+
+
+    <a href="//stackoverflow.com"
+       class="current-site-link site-link js-gps-track"
+       data-id="1"
+       data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="//meta.stackoverflow.com"
+       class="site-link js-gps-track"
+       data-id="4"
+       data-gps-track="
+            site.switch({ target_site:4, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link"
+                       href="//careers.stackoverflow.com"
+                            data-gps-track="site_switcher.click({ item_type:9 })"
+>
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Careers 2.0
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+                <a href="//stackexchange.com/users/3387803/?tab=accounts">your communities</a>
+        </h3>
+            
+            <a href="#" id="edit-pinned-sites">edit</a>
+            <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <ul class="my-sites">
+                    <li>
+                        
+
+
+
+    <a href="//stackoverflow.com"
+       class="site-link js-gps-track"
+       data-id="1"
+       data-gps-track="
+            site.switch({ target_site:1, item_type:3 }),
+        site_switcher.click({ item_type:1 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+            <span class="rep-score">1</span>
+    </a>
+
+                    </li>
+            </ul>
+                <div class="pinned-site-editor-container" style="display: none;">
+                    <input id="js-site-search-txt"
+                           type="text"
+                           class="site-filter-input"
+                           value=""
+                           placeholder="Add a Stack Exchange community"/>
+                    <input type="submit" id="pin-site-btn" value="Add" disabled="disabled"/>
+                    <ul class="js-found-sites found-sites"></ul>
+                    <ul class="pinned-site-list sortable" data-custom-list="False">
+                    </ul>
+                    <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled"/>
+                    <a href="#" id="reset-pinned-sites">reset to default list</a>
+                </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="//stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+            
+            <a href="//stackexchange.com" 
+               class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track"
+               data-gps-track="site_switcher.show"
+               title="A list of all 120 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+            
+                <a href="#"
+                   class="topbar-icon icon-inbox yes-hover js-inbox-button"
+                   title="Recent inbox messages">
+                    <span class="hidden-text">Inbox</span>
+                    <span class="unread-count" style="display:none"></span>
+                </a>
+                <a href="#" 
+                    class="topbar-icon icon-achievements yes-hover js-achievements-button "
+                    data-unread-class=""
+                    title="Recent achievements: reputation, badges, and privileges earned">
+                    <span class="hidden-text">Reputation and Badges</span>
+                    <span class="unread-count" style="display:none">
+                        
+                    </span>
+                </a>
+        </div>
+
+        <div class="topbar-links">
+            
+                <a href="/users/2843406/lui-cruz" class="profile-me">
+			        <div class="gravatar-wrapper-24" title="Lui Cruz"><img src="http://graph.facebook.com/560286362/picture?type=large" alt="" class="avatar-me js-avatar-me"></div>
+                    <div class="links-container topbar-flair">
+
+                        <span class="reputation" title="your reputation: 1">
+                            1
+                        </span>
+                    </div>
+			    </a>
+                <div class="links-container">
+                    <span class="topbar-menu-links">
+                        
+
+                        
+
+    <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                <li>
+                    <a href="/tour"     class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })"
+>
+                        Tour
+                        <span class="item-summary">
+                            Start here for a quick overview of the site
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/help"     class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })"
+>
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="//meta.stackoverflow.com"     class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })"
+>
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+                        
+                    </span>
+                </div>
+
+			<div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240" />
+                </form>
+			</div>
+            	
+        </div>      
+    </div> 
+</div>
+<script>
+    StackExchange.ready(function () {
+        //topbar.init();
+        StackExchange.topbar.init();
+    });
+</script>
+    <div class="container">
+        <div id="header" >
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs ">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="/tags">Tags</a></li>
+                            <li><a id="nav-users" href="/users">Users</a></li>
+                            <li><a id="nav-badges" href="/help/badges">Badges</a></li>
+                            <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+	<link itemprop="image" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+			<div id="question-header">
+			<h1 itemprop="name"><a href="/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile" class="question-hyperlink">Media Queries: How to target desktop, tablet and mobile?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="6370690"  id="question">
+    
+    <script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1736507672",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1736507672">
+            </div>    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="6370690">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">79</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>81</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+
+        <p>I have been doing some research on media queries and I still don't quite understand how to target devices of certain sizes. </p>
+
+<p>I want to be able to target desktop, tablet and mobile. I know that there will be some discrepancies but it would be nice to have a generic system that can be used to target these devices. </p>
+
+<p>Some examples I have found:</p>
+
+<pre><code># Mobile
+only screen and (min-width: 480px)
+
+# Tablet
+only screen and (min-width: 768px) 
+
+# Desktop
+only screen and (min-width: 992px)
+
+# Huge
+only screen and (min-width: 1280px) 
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code># Phone
+only screen and (max-width:320px)
+
+# Tablet
+only screen and (min-width:321px) and (max-width:768px)
+
+# Desktop
+only screen and (min-width:769px)
+</code></pre>
+
+<p>What do you think these 'breakpoints' should be for each device?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/css" class="post-tag" title="show questions tagged &#39;css&#39;" rel="tag">css</a> <a href="/questions/tagged/css3" class="post-tag" title="show questions tagged &#39;css3&#39;" rel="tag">css3</a> <a href="/questions/tagged/mobile" class="post-tag" title="show questions tagged &#39;mobile&#39;" rel="tag">mobile</a> <a href="/questions/tagged/media-queries" class="post-tag" title="show questions tagged &#39;media-queries&#39;" rel="tag">media-queries</a> <a href="/questions/tagged/tablet" class="post-tag" title="show questions tagged &#39;tablet&#39;" rel="tag">tablet</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/q/6370690/2843406" title="short permalink to this question" class="short-link" id="link-post-6370690">share</a><span class="lsep">|</span><a href="/posts/6370690/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/6370690/revisions" title="show all edits to this post">edited <span title="2013-05-02 13:06:17Z" class="relativetime">May 2 '13 at 13:06</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1028949/mrslayer"><div><img src="https://www.gravatar.com/avatar/e2ba75f9fafc9113f393a25397fd9b6c?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1028949/mrslayer">MrSlayer</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">4,244</span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="31 bronze badges"><span class="badge3"></span><span class="badgecount">31</span></span>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2011-06-16 10:57:10Z" class="relativetime">Jun 16 '11 at 10:57</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/239241/betamax"><div><img src="https://www.gravatar.com/avatar/3d6f118c8f12e8f16b3f1da855ece17a?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/239241/betamax">betamax</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">3,967</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="40 bronze badges"><span class="badge3"></span><span class="badgecount">40</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6370690" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" 
+			           data-addlink-html="add comment" 
+			           data-addlink-disabled="true">
+
+    <tr id="comment-33462662" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Check out these helpful articles: * <a href="http://www.smashingmagazine.com/2010/11/03/how-to-build-a-mobile-website/" rel="nofollow">How To Build A Mobile Website – Smashing Magazine</a> * <a href="http://coding.smashingmagazine.com/2010/07/19/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/" rel="nofollow">How To Use CSS3 Media Queries To Create a Mobile Version of Your Website – Smashing Magazine</a></span>
+                &ndash;&nbsp;
+                    <a href="/users/797922/ahsan-rathod"
+                       title="2939 reputation"
+                       class="comment-user">Ahsan Rathod</a>
+                <span class="comment-date" dir="ltr"><span title="2011-06-16 12:01:57Z" class="relativetime-clean">Jun 16 '11 at 12:01</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-6370690" data-rep=50 data-reg=true
+			   class="comments-link disabled-link" 
+			   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments." 
+				>add comment</a>
+    </td>
+</tr>            </table>    
+</div>
+
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								5 Answers
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="6370835"></a>
+<div id="answer-6370835" class="answer accepted-answer" data-answerid="6370835" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="6370835">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">57</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <p>If you want to target a device then just write <code>min-device-width</code>. For example:</p>
+
+<h3>For iPhone</h3>
+
+<pre><code>@media only screen and (min-device-width: 480px){}
+</code></pre>
+
+<h3>For tablets</h3>
+
+<pre><code>@media only screen and (min-device-width: 768px){}
+</code></pre>
+
+<p>Here are some good articles:</p>
+
+<ul>
+<li><a href="http://x7.fi/2010/02/12/how-to-fit-your-website-for-the-apple-ipad/" rel="nofollow">How to fit your website for the Apple iPad</a></li>
+<li><a href="http://webdesignerwall.com/tutorials/css3-media-queries" rel="nofollow">CSS3 Media Queries</a></li>
+</ul>
+
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/6370835/2843406" title="short permalink to this answer" class="short-link" id="link-post-6370835">share</a><span class="lsep">|</span><a href="/posts/6370835/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/6370835/revisions" title="show all edits to this post">edited <span title="2014-03-17 05:13:33Z" class="relativetime">Mar 17 at 5:13</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1799136/fizzix"><div class="gravatar-wrapper-32"><img src="http://i.stack.imgur.com/GnU2W.jpg?s=32&g=1" alt=""></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1799136/fizzix">fizzix</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">572</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="21 bronze badges"><span class="badge3"></span><span class="badgecount">21</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-06-16 11:10:46Z" class="relativetime">Jun 16 '11 at 11:10</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/567751/sandeep"><div><img src="https://www.gravatar.com/avatar/90889d071dcb0e6b37f7f66c59b14d56?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/567751/sandeep">sandeep</a><br>
+        <span class="reputation-score" title="reputation score 38071" dir="ltr">38.1k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="48 silver badges"><span class="badge2"></span><span class="badgecount">48</span></span><span title="90 bronze badges"><span class="badge3"></span><span class="badgecount">90</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6370835" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" 
+			           data-addlink-html="add comment" 
+			           data-addlink-disabled="true">
+
+    <tr id="comment-31662357" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">My tablet has a width of 2560x1600</span>
+                &ndash;&nbsp;
+                    <a href="/users/418150/leegee"
+                       title="675 reputation"
+                       class="comment-user">LeeGee</a>
+                <span class="comment-date" dir="ltr"><span title="2014-01-11 00:20:18Z" class="relativetime-clean">Jan 11 at 0:20</span></span>
+                                                                            </div>
+        </td>
+    </tr>
+    <tr id="comment-31790884" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">That may be so, but browsers on mobile devices have a &quot;device pixel ratio&quot;. This is where it treats each logical &quot;pixel&quot; as 2, 3 or even more actual pixels on your device. Otherwise a 20px high would will be very small and impossible to press - especially on your screen!</span>
+                &ndash;&nbsp;
+                    <a href="/users/622353/greg84"
+                       title="3440 reputation"
+                       class="comment-user">greg84</a>
+                <span class="comment-date" dir="ltr"><span title="2014-01-15 00:01:24Z" class="relativetime-clean">Jan 15 at 0:01</span></span>
+                                                                            </div>
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-6370835" data-rep=50 data-reg=true
+			   class="comments-link disabled-link" 
+			   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+				>add comment</a>
+    </td>
+</tr>
+    </table>
+</div>
+<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk806672317",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk806672317">
+            </div>
+  
+<a name="7354648"></a>
+<div id="answer-7354648" class="answer" data-answerid="7354648" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="7354648">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">108</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <p>IMO these are the best breakpoints:</p>
+
+<pre><code>@media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
+@media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */ }
+@media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+@media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+</code></pre>
+
+<p><strong>Edit</strong>: Refined to work better with 960 grids:</p>
+
+<pre><code>@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+</code></pre>
+
+<p>In practice, many designers convert pixels to ems, largely b/c ems better afford zooming. At standard zoom <code>1em === 16px</code>. Multiply pixels by <code>1em/16px</code> to get ems. For example, <code>320px === 20em</code>.</p>
+
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/7354648/2843406" title="short permalink to this answer" class="short-link" id="link-post-7354648">share</a><span class="lsep">|</span><a href="/posts/7354648/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/7354648/revisions" title="show all edits to this post">edited <span title="2013-04-03 19:47:56Z" class="relativetime">Apr 3 '13 at 19:47</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-09-08 21:19:54Z" class="relativetime">Sep 8 '11 at 21:19</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/770127/ryanve"><div><img src="https://www.gravatar.com/avatar/fd06cefb959e4e9dfefb35621f4a993e?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/770127/ryanve">ryanve</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,546</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="25 silver badges"><span class="badge2"></span><span class="badgecount">25</span></span><span title="50 bronze badges"><span class="badge3"></span><span class="badgecount">50</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-7354648" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="1" 
+			           data-addlink-html="add comment" 
+			           data-addlink-disabled="true">
+
+    <tr id="comment-11622081" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I&#39;ve been wondering about incrementing the lower limit of media queries. Seems logical, but haven&#39;t seen it mentioned too often. I&#39;d even take it one step further and convert to ems.  Look at @jonikorpi screenshots of  Ethan Marcotte&#39;s site behaviour with zooming and px media queries.  <a href="https://github.com/scottjehl/Respond/issues/18" rel="nofollow">github.com/scottjehl/Respond/issues/18</a></span>
+                &ndash;&nbsp;
+                    <a href="/users/895007/larry"
+                       title="346 reputation"
+                       class="comment-user">Larry</a>
+                <span class="comment-date" dir="ltr"><span title="2012-02-10 14:00:29Z" class="relativetime-clean">Feb 10 '12 at 14:00</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+        </td>
+    </tr>
+    <tr id="comment-21349912" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Why would you use min-width rather than max-width? How would you prevent that the <code>min-width: 320px</code> css overrides the <code>min-width: 801px</code> ?</span>
+                &ndash;&nbsp;
+                    <a href="/users/2019515/user2019515"
+                       title="2017 reputation"
+                       class="comment-user">user2019515</a>
+                <span class="comment-date" dir="ltr"><span title="2013-03-01 15:40:18Z" class="relativetime-clean">Mar 1 '13 at 15:40</span></span>
+                                                                            </div>
+        </td>
+    </tr>
+    <tr id="comment-22403240" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This code doesn&#39;t work on my mobile devices! Can someone provide a working example!</span>
+                &ndash;&nbsp;
+                    <a href="/users/1918669/jacob"
+                       title="858 reputation"
+                       class="comment-user">Jacob</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-02 11:13:52Z" class="relativetime-clean">Apr 2 '13 at 11:13</span></span>
+                                                                            </div>
+        </td>
+    </tr>
+    <tr id="comment-22462171" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Jacob Each one needs to be wrapped in the <code>@media</code> syntax. See updated answer.</span>
+                &ndash;&nbsp;
+                    <a href="/users/770127/ryanve"
+                       title="5546 reputation"
+                       class="comment-user">ryanve</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-03 19:50:03Z" class="relativetime-clean">Apr 3 '13 at 19:50</span></span>
+                                                                            </div>
+        </td>
+    </tr>
+    <tr id="comment-24981005" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I made a gist for this <a href="https://gist.github.com/chrisjlee/5832418" rel="nofollow">gist.github.com/chrisjlee/5832418</a></span>
+                &ndash;&nbsp;
+                    <a href="/users/171217/chrisjlee"
+                       title="1623 reputation"
+                       class="comment-user">chrisjlee</a>
+                <span class="comment-date" dir="ltr"><span title="2013-06-21 16:26:47Z" class="relativetime-clean">Jun 21 '13 at 16:26</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-7354648" data-rep=50 data-reg=true
+			   class="comments-link " 
+			   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+				>show <b>1</b> more comment</a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="20350990"></a>
+<div id="answer-20350990" class="answer" data-answerid="20350990" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="20350990">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">9</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <h2>Don't target specific devices or sizes!</h2>
+
+<p>The <a href="http://www.palantir.net/blog/re-thinking-breakpoints-responsive-design" rel="nofollow">general wisdom</a> is <strong>not to target specific devices or sizes</strong>, but to reframe the term 'breakpoint':</p>
+
+<ul>
+<li>develop the site for <a href="http://www.lukew.com/ff/entry.asp?933" rel="nofollow">mobile first</a> using percentages or ems, not pixels,</li>
+<li>then try it in a larger viewport and note where it begins to fail,</li>
+<li>redesign the layout and add a CSS media query just to handle the broken parts,</li>
+<li>repeat the process until you reach the next breakpoint.</li>
+</ul>
+
+<p>You can use <a href="http://responsivepx.com/" rel="nofollow">responsivepx.com</a> to find the 'natural' breakpoints, as in <a href="http://marcdrummond.com/responsive-web-design/2011/12/29/default-breakpoints-are-dead" rel="nofollow">'breakpoints are dead' by Marc Drummond</a>.</p>
+
+<p>The 'breakpoints' then become the <strong>actual point at which your mobile design begins to 'break'</strong> i.e. cease to be usable or visually pleasing. Once you have a good working mobile site, without media queries, you can stop being concerned about specific sizes and simply add media queries that handle successively larger viewports.</p>
+
+<p>If you're not trying to pin a design to an exact screen size, this approach works by <strong>removing the need to target specific devices</strong>. The <strong>integrity of the design itself at each breakpoint</strong> ensures that it will hold up at any size. In other words, if a menu/content section/whatever stops being usable at a certain size, <em>design a breakpoint for that size</em>, <strong>not</strong> for a specific device size.</p>
+
+<p>See Lyza Gardner's post on <a href="http://blog.cloudfour.com/behavioral-breakpoints/" rel="nofollow">behavioural breakpoints</a>, and also Zeldman's thoughts (and the comments) on <a href="http://blog.cloudfour.com/behavioral-breakpoints/" rel="nofollow">fluid layouts</a>.</p>
+
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/20350990/2843406" title="short permalink to this answer" class="short-link" id="link-post-20350990">share</a><span class="lsep">|</span><a href="/posts/20350990/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/20350990/revisions" title="show all edits to this post">edited <span title="2014-03-26 13:40:10Z" class="relativetime">yesterday</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-12-03 12:17:05Z" class="relativetime">Dec 3 '13 at 12:17</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/123033/dave-everitt"><div><img src="https://www.gravatar.com/avatar/c94743fafb1114f9742bf7a16a2e11d7?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/123033/dave-everitt">Dave Everitt</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">3,615</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="32 bronze badges"><span class="badge3"></span><span class="badgecount">32</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20350990" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" 
+			           data-addlink-html="add comment" 
+			           data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-20350990" data-rep=50 data-reg=true
+			   class="comments-link disabled-link" 
+			   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+				>add comment</a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="19782580"></a>
+<div id="answer-19782580" class="answer" data-answerid="19782580" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="19782580">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">3</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <ol>
+<li>Extra small devices (phones, up to 480px) </li>
+<li>Small devices (tablets, 768px and up) </li>
+<li>Medium devices (big landscape tablets, laptops, and
+desktops, 992px and up) </li>
+<li>Large devices (large desktops, 1200px and  up)  </li>
+<li>portrait e-readers (Nook/Kindle), smaller tablets -    min-width:481px </li>
+<li>portrait tablets, portrait iPad, landscape e-readers   - min-width:641px </li>
+<li>tablet, landscape iPad, lo-res laptops - min-width:961px</li>
+<li>HTC One     device-width: 360px device-height: 640px    -webkit-device-pixel-ratio: 3</li>
+<li>Samsung Galaxy S2       device-width: 320px device-height: 534px -webkit-device-pixel-ratio: 1.5     (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio:
+3/2), (min-device-pixel-ratio: 1.5  </li>
+<li>Samsung Galaxy S3  device-width: 320px device-height: 640px    -webkit-device-pixel-ratio: 2  (min--moz-device-pixel-ratio: 2),     - Older Firefox browsers (prior to Firefox 16) -  </li>
+<li>Samsung Galaxy S4  device-width: 320px device-height: 640px   -webkit-device-pixel-ratio: 3  </li>
+<li>LG Nexus 4  device-width: 384px device-height: 592px -webkit-device-pixel-ratio: 2  </li>
+<li>Asus Nexus 7   device-width: 601px device-height: 906px
+-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332)</li>
+<li>iPad 1 and 2, iPad Mini   device-width: 768px device-height: 1024px   -webkit-device-pixel-ratio: 1  </li>
+<li>iPad 3 and 4 device-width: 768px device-height: 1024px -webkit-device-pixel-ratio: 2) </li>
+<li>iPhone 3G  device-width: 320px device-height: 480px   -webkit-device-pixel-ratio: 1) </li>
+<li>iPhone 4   device-width: 320px device-height: 480px -webkit-device-pixel-ratio: 2) </li>
+<li>iPhone 5   device-width: 320px device-height: 568px -webkit-device-pixel-ratio: 2)</li>
+</ol>
+
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/19782580/2843406" title="short permalink to this answer" class="short-link" id="link-post-19782580">share</a><span class="lsep">|</span><a href="/posts/19782580/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-11-05 05:41:14Z" class="relativetime">Nov 5 '13 at 5:41</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1012591/html-developer"><div class="gravatar-wrapper-32"><img src="http://i.stack.imgur.com/OsZ74.png?s=32&g=1" alt=""></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1012591/html-developer">HTML Developer</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">434</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19782580" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" 
+			           data-addlink-html="add comment" 
+			           data-addlink-disabled="true">
+
+    <tr id="comment-34322003" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Sansung Galaxy S3 @media only screen and (device-width: 720px) and (device-height: 1280px)  and (-webkit-min-device-pixel-ratio: 2) TESTED and worked.</span>
+                &ndash;&nbsp;
+                    <a href="/users/2060451/user2060451"
+                       title="131 reputation"
+                       class="comment-user">user2060451</a>
+                <span class="comment-date" dir="ltr"><span title="2014-03-21 05:46:46Z" class="relativetime-clean">Mar 21 at 5:46</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-19782580" data-rep=50 data-reg=true
+			   class="comments-link disabled-link" 
+			   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+				>add comment</a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="19473877"></a>
+<div id="answer-19473877" class="answer" data-answerid="19473877" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="19473877">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <p>1)I have used this <a href="http://whatismyscreenresolution.com/" rel="nofollow">site</a> to find the resolution and done CSS per actual numbers. 
+My numbers vary quite a bit from the above answers, except that the css actually hits the desired devices. </p>
+
+<p>2) Also, have this debug piece of code right after your media query:
+For example:</p>
+
+<pre><code>@media only screen and (min-width:769px) and (max-width:1281px){                 /*tablet 10 polegadas entra aqui*/
+body::before{ content: "tablet to some desktop media query (769 &gt; 1281) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9); /* Semi-transparent yellow */ position: absolute; top: 0; left: 0; right: 0; z-index: 99; } 
+</code></pre>
+
+<p>Got this in the web, don't remember which site. Add this debug item in every single media query and you will see which query is being applied. </p>
+
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/19473877/2843406" title="short permalink to this answer" class="short-link" id="link-post-19473877">share</a><span class="lsep">|</span><a href="/posts/19473877/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-10-20 04:15:58Z" class="relativetime">Oct 20 '13 at 4:15</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2060451/user2060451"><div><img src="https://www.gravatar.com/avatar/75a64b8257717142d7e3351e1a5ad5af?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2060451/user2060451">user2060451</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">131</span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19473877" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" 
+			           data-addlink-html="add comment" 
+			           data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-19473877" data-rep=50 data-reg=true
+			   class="comments-link disabled-link" 
+			   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+				>add comment</a>
+    </td>
+</tr>
+    </table>
+</div>
+									<a name='new-answer'></a>
+						<form id="post-form" action="/questions/6370690/answer/submit" method="post"  class="post-form">
+							<input type="hidden" id="post-id" value="6370690" />
+							<h2 class="space">Your Answer</h2>
+
+
+
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: false,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="9a35720df48402320f14e82d1b669316">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+							<div style="position: relative;">
+								
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="#" class="discard-answer dno">discard</a>
+								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice">
+Not the answer you&#39;re looking for?							Browse other questions tagged <a href="/questions/tagged/css" class="post-tag" title="show questions tagged &#39;css&#39;" rel="tag">css</a> <a href="/questions/tagged/css3" class="post-tag" title="show questions tagged &#39;css3&#39;" rel="tag">css3</a> <a href="/questions/tagged/mobile" class="post-tag" title="show questions tagged &#39;mobile&#39;" rel="tag">mobile</a> <a href="/questions/tagged/media-queries" class="post-tag" title="show questions tagged &#39;media-queries&#39;" rel="tag">media-queries</a> <a href="/questions/tagged/tablet" class="post-tag" title="show questions tagged &#39;tablet&#39;" rel="tag">tablet</a>  or <a href="/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+
+
+
+<script>
+    window.showNewUser = false;
+
+</script>
+
+<div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+    <h4>Hello World!</h4>
+    <div>
+        <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p>
+        <p class="ar">
+                <a href="/about?mnu=1">about &raquo;</a>&nbsp;&nbsp;&nbsp;
+            <a href="/help?mnu=1">help &raquo;</a>
+        </p>
+    </div>
+</div>
+    <script>
+    if (showNewUser) {
+        document.getElementById('newuser-box').style.display = '';
+    }
+    </script>						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-06-16 10:57:10Z"><b>2 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>109691 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2014-03-26 13:40:10Z">yesterday</a></b></p>
+			                    </td>
+			                </tr>
+			        </table>
+			    </div>
+						
+			<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1416217809",17).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1416217809">
+            </div>  
+    <div id="hireme">
+        <script>
+window.careers_adurl="//careers.stackoverflow.com/gethired/js",window.careers_cssurl="//cdn-careers.sstatic.net/careers/gethired/sidebar.min.css?v=ed74a1a226c6",window.careers_leaderboardcssurl="//cdn-careers.sstatic.net/careers/gethired/ninja.min.css?v=f0774d5c89a6",window.careers_companycssurl="//cdn-careers.sstatic.net/careers/gethired/company",window.careers_adselector="div.hireme, div#hireme",StackExchange.ready(function(){$.ajax({url:"//cdn-careers.sstatic.net/careers/gethired/loader.min.js?v=47db7c3bf3d9",dataType:"script",cache:!0})});        </script>
+    </div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="/q/15621428" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="/questions/15621428/min-width-481-why" class="question-hyperlink">min-width = 481 why</a>
+</div><div class="spacer">
+	<a href="/q/13831183" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/13831183/media-queries-work-on-desktop-but-not-tablet-for-website-under-development-but" class="question-hyperlink">@media queries work on desktop but not tablet for website under development but do work on test site</a>
+</div><div class="spacer">
+	<a href="/q/14224913" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="/questions/14224913/media-query-to-target-most-of-smartphone" class="question-hyperlink">Media query to target most of smartphone</a>
+</div><div class="spacer">
+	<a href="/q/14619038" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="/questions/14619038/specific-media-queries-for-target-mobile-first-tablet-desktop" class="question-hyperlink">Specific media queries for target mobile (first), tablet &amp; desktop</a>
+</div><div class="spacer">
+	<a href="/q/10118909" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="/questions/10118909/how-to-identify-device-to-make-separate-css-for-ipad-and-galaxy-tab" class="question-hyperlink">How to identify device to make separate css for iPad and Galaxy Tab?</a>
+</div><div class="spacer">
+	<a href="/q/13061493" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-1</div>
+	</a>
+	<a href="/questions/13061493/convert-wordpress-theme-into-responsive-design" class="question-hyperlink">Convert wordpress theme into responsive design</a>
+</div><div class="spacer">
+	<a href="/q/16594292" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/16594292/remove-function-depending-on-screen-size" class="question-hyperlink">Remove function depending on screen size</a>
+</div><div class="spacer">
+	<a href="/q/15691837" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/15691837/responsive-design-with-twitter-bootstrap" class="question-hyperlink">Responsive design with Twitter bootstrap</a>
+</div><div class="spacer">
+	<a href="/q/19809310" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/19809310/how-to-apply-different-css-for-mobile-devices-not-just-based-on-media-width-heig" class="question-hyperlink">How to apply different CSS for mobile devices not just based on media width/height</a>
+</div><div class="spacer">
+	<a href="/q/13865152" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/13865152/phonegap-assets-and-universal-ios-apps" class="question-hyperlink">Phonegap - assets and universal iOS apps</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/6370690">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer">
+<a href="/q/7316413" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">3
+    </div>
+</a><a href="/questions/7316413/most-used-media-queries-for-smarthphones-and-tablets" class="question-hyperlink">Most used media queries for smarthphones and tablets?</a>
+</div>
+<div class="spacer">
+<a href="/q/8352919" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">4
+    </div>
+</a><a href="/questions/8352919/css-media-queries-target-mobile-devices-without-specifying-width-pixel-ratio" class="question-hyperlink">css media queries: target mobile devices without specifying width, pixel ratio, etc</a>
+</div>
+<div class="spacer">
+<a href="/q/12045893" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">19
+    </div>
+</a><a href="/questions/12045893/which-are-the-most-important-media-queries-to-use-in-creating-mobile-responsive" class="question-hyperlink">Which are the most important media queries to use in creating mobile responsive design?</a>
+</div>
+<div class="spacer">
+<a href="/q/12299291" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="/questions/12299291/css-media-queries-for-common-tablet-sizes" class="question-hyperlink">CSS Media Queries for Common Tablet Sizes</a>
+</div>
+<div class="spacer">
+<a href="/q/12469875" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="/questions/12469875/how-to-code-css-media-queries-targeting-all-mobile-devices-and-tablets" class="question-hyperlink">How to code CSS media queries targeting ALL mobile devices and tablets?</a>
+</div>
+<div class="spacer">
+<a href="/q/13730629" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="/questions/13730629/how-can-i-distinguish-a-tablet-from-an-older-laptop-or-desktop-with-media-querie" class="question-hyperlink">How can I distinguish a tablet from an older laptop or desktop with media queries?</a>
+</div>
+<div class="spacer">
+<a href="/q/14497049" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="/questions/14497049/media-query-for-mobile-smartphones-and-tablets" class="question-hyperlink">Media query for mobile (smartphones and tablets)</a>
+</div>
+<div class="spacer">
+<a href="/q/14619038" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="/questions/14619038/specific-media-queries-for-target-mobile-first-tablet-desktop" class="question-hyperlink">Specific media queries for target mobile (first), tablet &amp; desktop</a>
+</div>
+<div class="spacer">
+<a href="/q/15432870" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">6
+    </div>
+</a><a href="/questions/15432870/how-to-target-tablets-but-not-ie9-using-a-media-query" class="question-hyperlink">How to target tablets but not IE9 using a media query</a>
+</div>
+<div class="spacer">
+<a href="/q/20454942" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="/questions/20454942/media-querys-working-in-desktop-browsers-but-not-mobile" class="question-hyperlink">Media Querys working in desktop browsers, but not mobile</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="//stackexchange.com/questions?tab=hot" 
+           class="js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/45579/override-equals-and-hashcode-using-reflection" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Override equals() and hashCode() using reflection
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="http://movies.stackexchange.com/questions/18353/why-dont-the-people-in-laketown-just-relocate" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don&#39;t the people in Laketown just relocate?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/54285/are-there-any-systems-out-there-that-use-a-one-time-pad" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are there any systems out there that use a one-time pad?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/22707830/pattern-matching-on-a-generic-container-of-a-discriminated-union" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Pattern Matching on a generic container of a Discriminated Union
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/161958/what-will-i-miss-out-on-if-i-play-diablo-3-without-reaper-of-souls" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What will I miss out on if I play Diablo 3 without Reaper of Souls?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/18619/do-you-have-to-find-out-prove-something-to-get-a-phd" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do you have to find out/ prove something to get a PhD?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/31098/when-are-apex-classes-loaded" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When are Apex classes loaded?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/11944/can-the-giving-tree-be-explained-in-a-way-that-isnt-an-unhealthy-lesson" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can &quot;The Giving Tree&quot; be explained in a way that isn&#39;t an unhealthy lesson?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-chess" title="Chess Stack Exchange"></div><a href="http://chess.stackexchange.com/questions/5131/has-anand-missed-that-he-is-better-anand-vs-andreikin-round-12-candidates-tourn" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:435 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Has Anand missed that he is better? Anand vs Andreikin round 12 Candidates tournament
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/104492/spi-flash-device-selection-using-sclk-mosi-as-well-as-ss" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    SPI Flash device selection using SCLK, MOSI as well as SS?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="http://serverfault.com/questions/585089/a-domain-ive-never-heard-of-resolves-to-my-website" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A domain I&#39;ve never heard of resolves to my website
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/19973/does-this-sentence-makes-sense-who-is-the-responsible-for-let-the-window-opene" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does this sentence makes sense? &quot;Who is the responsible for let the window opened&quot;
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/160009/what-is-the-thirsty-equivalent-of-ravenously" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the &quot;thirsty&quot; equivalent of &quot;ravenously&quot;?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/105406/can-a-burning-laser-be-directed-through-fiber-optics" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a burning laser be directed through fiber optics?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/161616/low-dimensional-topological-manifolds" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Low dimensional topological manifolds
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/24927/solve-the-global-debt-the-code-golf-way" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Solve the Global Debt, the Code Golf way
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/160318/word-that-means-tendency-to-avoid-something" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Word that means tendency to avoid something
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/729033/can-a-piece-of-a4-paper-be-folded-so-that-its-thick-enough-to-reach-the-moon" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a piece of A4 paper be folded so that it&#39;s thick enough to reach the moon?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-networkengineering" title="Network Engineering Stack Exchange"></div><a href="http://networkengineering.stackexchange.com/questions/7060/can-a-cisco-pix-fiewall-be-used-as-a-router" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:496 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a Cisco PIX Fiewall be used as a router?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/168181/putting-normal-letters-in-between-greek-ones" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Putting normal letters in between Greek ones
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/121910/gnu-stow-how-to-stow-only-selected-files-folders" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    GNU Stow: How to stow only selected files/folders?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/21438/do-i-really-need-to-stay-the-full-2-weeks" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do I really need to stay the full 2 weeks?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="http://stats.stackexchange.com/questions/91536/deduce-variance-from-boxplot" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Deduce variance from boxplot
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/21446/how-to-clock-time-on-a-mandatory-shuttle" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to clock time on a mandatory shuttle?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="/feeds/question/6370690" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/6370690/ivc/b2b3');});
+</script>
+<noscript>
+    <div><img src="/posts/6370690/ivc/b2b3" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="/about">about</a>
+                    <a href="/help">help</a>
+                    <a href="http://blog.stackexchange.com?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com">chat</a>
+                    <a href="http://data.stackexchange.com">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MjAsImNtIjo5NTQsImNoIjoxMTc4LCJjciI6Mjc3NiwiZG0iOjQsImZjIjoyODYyLCJmbCI6Mjc1MSwibnciOjIyLCJydiI6MCwicHIiOjExNSwic3QiOjAsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2Fib3V0L2NvbnRhY3QiLCJyZSI6MX0&s=hRods5B22XvRBwWIwtIMekcyNF8">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tr>
+            <th colspan=3>
+                Technology
+            </th>
+            <th >
+                Life / Arts
+            </th>
+            <th >
+                Culture / Recreation
+            </th>
+            <th >
+                Science
+            </th>
+            <th >
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (12)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo &#169; 2014 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2014.3.27.1497
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('css,css3,mobile,media-queries,tablet,x-user-registered');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        ga('set', 'dimension1', '3387803');         
+        ga('set', 'dimension2', '|css|css3|mobile|media-queries|tablet|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+    
+    </body>
+</html>

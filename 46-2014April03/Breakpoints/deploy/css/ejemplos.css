@@ -1,0 +1,449 @@
+/* ++++++++++++ mediaqueries ++++++++++++ */
+
+
+@media only screen and (max-device-width: 480px) { 
+	body{
+		background: red;
+	}
+}
+
+
+@media only screen and (max-width: 760px) { 
+	body{
+		background: green;
+	}
+}
+
+
+@media only screen and (max-width: 480px) { 
+	body{
+		background: red;
+	}
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 760px) { 
+	body{
+		background: green;
+	}
+}
+
+
+
+@media only screen and (min-width: 480px) { 
+	body{
+		background: red;
+	}
+}
+
+
+
+@media only screen and (min-width: 768px) { 
+	body{
+		background: yellow;
+	}
+}
+
+
+/* estilos original*/
+
+body{
+	background: url(../img/natural_paper.png) fixed;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2{
+	font-family: 'Elsie', cursive;
+	margin-top: 0;
+	font-weight: normal;
+}
+
+p{
+	font-family: 'Snippet', sans-serif;
+}
+
+header{
+	width: 100%;
+	text-align: center;
+}
+
+header h1{
+	font-size: 44px;
+	margin-bottom: 4px;
+}
+
+header h2{
+	font-size: 19px;
+}
+
+.content{
+	padding: 50px 0;
+	background-color: rgb(240, 240, 240);
+	width: 80%;
+	margin: 0 auto;
+	-webkit-box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+	box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+}
+
+.home_section{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.main_image{
+	margin-top: 3em;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.main_image figcaption{
+
+	font-family: 'Elsie', cursive;
+	font-size: 13px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
+#intro_post{
+	margin-top: 5em;
+}
+.home_section h1{
+	font-size: 29px;
+}
+
+.home_post{
+	width: 30%;
+	display: inline-block;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+}
+
+.home_post figure{
+	width: 204px;
+	height: 204px;
+	margin:0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+
+	-webkit-box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+	box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+}
+
+.home_post figure img{
+	width: 100%; 
+}
+
+/* fin estilos originales */
+
+
+/*estilos empezando a diseñar de grande a pequeño*/
+body{
+	background: url(../img/natural_paper.png) fixed;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2{
+	font-family: 'Elsie', cursive;
+	margin-top: 0;
+	font-weight: normal;
+}
+
+p{
+	font-family: 'Snippet', sans-serif;
+}
+
+header{
+	width: 100%;
+	text-align: center;
+}
+
+header h1{
+	font-size: 44px;
+	margin-bottom: 4px;
+}
+
+header h2{
+	font-size: 19px;
+}
+
+.content{
+	padding: 50px 0;
+	background-color: rgb(240, 240, 240);
+	width: 80%;
+	margin: 0 auto;
+	-webkit-box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+	box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+}
+
+.home_section{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.main_image{
+	margin-top: 3em;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.main_image figcaption{
+
+	font-family: 'Elsie', cursive;
+	font-size: 13px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
+#intro_post{
+	margin-top: 5em;
+}
+.home_section h1{
+	font-size: 29px;
+}
+
+#intro article figure{
+	display: inline-block;
+	margin: 0;
+}
+
+#intro article figure img{
+	width: 25%;
+}
+
+#intro article figcaption{
+	display: inline-block;
+	width: 70%;
+	float:right;
+}
+
+/* ++++++++++++ mediaqueries ++++++++++++ */
+
+
+@media only screen and (max-width: 480px) { 
+	.content{
+		width: 100%;
+	}
+
+	.home_section{
+		width: 95%;
+	}
+
+	.main_image{
+		margin: 0;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.main_image img{
+		width: 100%;
+	}
+
+	#intro article h1{
+		text-align: center;
+	}
+
+	#intro article figure{
+		text-align: center;
+	}
+	
+	#intro article figure img{
+		width: 80%;
+	}
+
+	#intro article figcaption{
+		display: inline-block;
+		width: 100%;
+		float:left;
+	}
+}
+
+@media only screen and (min-width: 481px) and (max-width: 760px) { 
+	.content{
+		width: 90%;
+	}
+
+		.home_section{
+		width: 95%;
+	}
+
+	.main_image{
+		margin: 0;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.main_image img{
+		width: 100%;
+	}
+
+	#intro article figure img{
+		width: 35%;
+	}
+
+	#intro article figcaption{
+		display: inline-block;
+		width: 60%;
+		float:right;
+	}
+}
+
+
+
+
+
+/*estilos empezando a diseñar desde mobile*/
+
+body{
+	background: url(../img/natural_paper.png) fixed;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2{
+	font-family: 'Elsie', cursive;
+	margin-top: 0;
+	font-weight: normal;
+}
+
+p{
+	font-family: 'Snippet', sans-serif;
+}
+
+header{
+	width: 100%;
+	text-align: center;
+}
+
+header h1{
+	font-size: 44px;
+	margin-bottom: 4px;
+}
+
+header h2{
+	font-size: 19px;
+}
+
+hr{
+	border-color: rgba(180, 180, 180, .1);
+	margin-bottom: 2em;
+}
+.content{
+	padding: 50px 0;
+	background-color: rgb(240, 240, 240);
+	width: 100%;
+	margin: 0 auto;
+	-webkit-box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+	box-shadow: 0 1px 4px 4px rgba(180,180,180,.3);
+}
+
+.home_section{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.main_image{
+	margin: 0;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.main_image img{
+	width: 100%;
+}
+
+.main_image figcaption{
+
+	font-family: 'Elsie', cursive;
+	font-size: 13px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
+#intro_post{
+	margin-top: 5em;
+}
+.home_section h1{
+	font-size: 29px;
+	text-align: center;
+}
+
+#intro article figure{
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+}
+
+#intro article figure img{
+	width: 80%;
+}
+
+#intro article figcaption{
+	display: inline-block;
+	width: 100%;
+
+}
+
+/* ++++++++++++ mediaqueries ++++++++++++ */
+
+
+@media only screen and (min-width: 480px) { 
+	.content{
+		width: 90%;
+	}
+
+	#intro article figure{
+		text-align: left;
+	}
+
+	#intro article figure img{
+		width: 35%;
+	}
+
+	#intro article figcaption{
+		display: inline-block;
+		width: 60%;
+		float:right;
+	}
+}
+
+@media only screen and (min-width: 768px) { 
+	.content{
+		width: 80%;
+	}
+
+	.main_image img{
+		width: auto;
+	}
+
+	#intro article figure img{
+		width: 25%;
+	}
+
+	#intro article figcaption{
+		display: inline-block;
+		width: 70%;
+		float:right;
+	}
+
+	#intro article figcaption p{
+		margin-top: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

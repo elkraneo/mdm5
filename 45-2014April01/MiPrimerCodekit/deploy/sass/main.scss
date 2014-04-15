@@ -1,0 +1,86 @@
+@import "reset";
+
+$primary-font: "Helvetica", sans-serif;
+$secondary-font: "Georgia", serif;
+
+@mixin enchular($radius, $color) {
+	border-radius:$radius;
+	box-shadow: 7px 7px $color;
+}
+
+h1{
+	transition:all 1s;
+	font-family: $primary-font;
+
+	&:hover{
+		background-color:blue;
+	}
+}
+
+h2{	
+	font-family: $primary-font;	
+}
+
+h3{	
+	font-family: $primary-font;	
+	color:grey;
+	background-color:blue;
+	padding:1em;
+	@include enchular(7px, black);
+}
+
+p{
+	font-family: "Georgia", serif;	
+	@include enchular(7px, black);
+	width: 600px / 960px * 100%;
+}
+
+ol{
+	background-color:green;
+	
+	li{
+		background-color:red;
+	}
+}
+
+
+.message{
+	border: 1px solid #f00;
+	padding: 11px;
+	color: #333;
+}
+
+.succes{
+	@extend .message;
+	border-color: green;
+}
+
+.error{
+	@extend .message;
+	border-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

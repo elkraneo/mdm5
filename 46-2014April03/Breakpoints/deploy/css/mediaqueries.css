@@ -1,0 +1,72 @@
+
+/*@media type and properties { }*/
+
+/*estilos para pantallas*/
+@media screen { }
+
+/*estilos que se aplican al imprimir el documento*/
+@media print { }
+
+/*estilos que se aplican al usar proyector*/
+@media projection { }
+
+/*estilos que se aplican en cualquier circustancia*/
+@media all { }
+
+
+/*estilos que se aplican hasta determinado ancho*/
+@media only screen and (max-width: 480px) { }
+@media only screen and (max-device-width: 480px) { }
+
+/*estilos que se aplican desde determinado ancho*/
+@media only screen and (min-width: 480px) { }
+@media only screen and (min-device-width: 480px) { }
+
+/*estilos que se aplican hasta determinado alto*/
+@media only screen and (max-height: : 550px) { }
+@media only screen and (max-device-height: 550px) { }
+
+/*estilos que se aplican desde determinado alto*/
+@media only screen and (min-height: : 550px) { }
+@media only screen and (min-device-height: 550px) { }
+
+/*estilos que se aplican según esté el dispositivo en horizontal o en vertical*/
+@media all and (orientation:portrait) {  }
+@media all and (orientation:landscape) {  }
+
+/*estilos que se aplican según resolución de pantalla*/
+@media print and (min-resolution: 300dpi) { … }
+
+
+/*combinar condiciones en el mediaquery*/
+@media all and (orientation:portrait) and (max-width: 480px){  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

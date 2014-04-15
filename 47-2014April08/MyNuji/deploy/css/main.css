@@ -1,0 +1,45 @@
+body{
+	background-color: gray;
+}
+
+#containerFrame {
+	border: 1px solid black;
+	width: 320px;
+	height: 568px;
+	overflow: auto;
+	background-image: url("../images/background.png");
+}
+
+	#containerFrame ul {
+		margin-top: 450px;
+		list-style-type: none;
+		padding: 0;
+	}
+
+		#containerFrame ul li {
+			height: 44px;
+			background-color: rgba(0,0,0,.3);
+			
+			position: relative;
+		}
+			
+			#containerFrame ul li a {
+				color: white;
+				text-decoration: none;
+				font-family: "Helvetica Neue";
+				margin-left: 30px;
+				border-bottom: 1px solid white;
+				display: block;
+				height: 44px;
+				
+				position: relative;
+				transform: translateY(25%);
+			}
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	#containerFrame {
+		background-image: url("../images/background@2x.png");
+		background-size: cover;
+	}
+}
